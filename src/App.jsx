@@ -1,36 +1,37 @@
 import { useState, useEffect } from 'react'
 import { StaggeredMenu } from './components/StaggeredMenu'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Services from './components/Services'
 import Contact from './components/Contact'
+import LanyardSection from './components/LanyardSection'
 import Footer from './components/Footer'
 import ScrollTop from './components/ScrollTop'
 import CertModal from './components/CertModal'
 import Cursor from './components/Cursor'
 import './styles/index.css'
-import './components/AppMenu.css'
 
 const menuItems = [
-  { label: 'Home', ariaLabel: 'Ke halaman Home', link: '#home' },
-  { label: 'About', ariaLabel: 'Tentang saya', link: '#about' },
-  { label: 'Skills', ariaLabel: 'Keahlian saya', link: '#skills' },
-  { label: 'Experience', ariaLabel: 'Pengalaman saya', link: '#experience' },
-  { label: 'Services', ariaLabel: 'Layanan saya', link: '#services' },
-  { label: 'Contact', ariaLabel: 'Hubungi saya', link: '#contact' },
+  { label: 'Home',       ariaLabel: 'Ke halaman Home',    link: '#home' },
+  { label: 'About',      ariaLabel: 'Tentang saya',       link: '#about' },
+  { label: 'Skills',     ariaLabel: 'Keahlian saya',      link: '#skills' },
+  { label: 'Experience', ariaLabel: 'Pengalaman saya',    link: '#experience' },
+  { label: 'Services',   ariaLabel: 'Layanan saya',       link: '#services' },
+  { label: 'Contact',    ariaLabel: 'Hubungi saya',       link: '#contact' },
 ]
 
 const socialItems = [
   { label: 'Instagram', link: 'https://instagram.com/zulfikarelreal' },
-  { label: 'WhatsApp', link: 'https://wa.me/6282123477891' },
-  { label: 'LinkedIn', link: 'https://linkedin.com/in/muhammad-agung-zulfikar' },
-  { label: 'GitHub', link: 'http://github.com/zulfikarelreal' },
+  { label: 'WhatsApp',  link: 'https://wa.me/6282123477891' },
+  { label: 'LinkedIn',  link: 'https://linkedin.com/in/muhammad-agung-zulfikar' },
+  { label: 'GitHub',    link: 'http://github.com/zulfikarelreal' },
 ]
 
 export default function App() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme]       = useState('light')
   const [certModal, setCertModal] = useState(null)
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function App() {
 
   const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light')
 
-  // Smooth scroll for StaggeredMenu anchor links
+  // Smooth scroll untuk anchor link StaggeredMenu
   useEffect(() => {
     const handleAnchorClick = (e) => {
       const target = e.target.closest('a[href^="#"]')
@@ -60,8 +61,31 @@ export default function App() {
     <div className="app">
       <Cursor />
 
-      {/* StaggeredMenu — fixed overlay */}
-      <div className="app-menu-wrapper">
+      {/* ── Desktop: Horizontal Navbar ── */}
+      <div className="desktop-nav">
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+      </div>
+
+      {/* ── Mobile: StaggeredMenu overlay ── */}
+      <div className="mobile-nav">
+        <div className="mobile-nav-header">
+          <button
+            className="mobile-logo"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            zulfikar<span>.</span>
+          </button>
+          <button
+            className="mobile-theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {theme === 'light'
+              ? <i className='bx bx-moon'></i>
+              : <i className='bx bx-sun'></i>
+            }
+          </button>
+        </div>
         <StaggeredMenu
           position="right"
           items={menuItems}
@@ -76,27 +100,6 @@ export default function App() {
           accentColor="var(--accent)"
           isFixed={true}
         />
-
-        {/* Theme toggle — sits in top-left of the fixed header */}
-        <button
-          className="app-theme-toggle"
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-          title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-        >
-          {theme === 'light'
-            ? <i className='bx bx-moon'></i>
-            : <i className='bx bx-sun'></i>
-          }
-        </button>
-
-        {/* Logo */}
-        <button
-          className="app-logo"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        >
-          zulfikar<span>.</span>
-        </button>
       </div>
 
       <Hero />
@@ -105,8 +108,10 @@ export default function App() {
       <Experience onOpenCert={setCertModal} />
       <Services />
       <Contact />
+      <LanyardSection />
       <Footer />
       <ScrollTop />
+
       {certModal && (
         <CertModal cert={certModal} onClose={() => setCertModal(null)} />
       )}

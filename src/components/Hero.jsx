@@ -1,9 +1,16 @@
-import { Suspense } from 'react'
-import Lanyard from './Lanyard'
+import { Component } from 'react'
 import BlurText from './BlurText'
 import PixelCard from './PixelCard'
-import profileImg from '../assets/profile.jpg'
 import './Hero.css'
+
+// Gambar diimport secara kondisional agar tidak crash jika file tidak ada
+let profileImg = null
+try {
+  // Vite static import — jika file ada, ini akan bekerja saat build
+  profileImg = new URL('../assets/profile.jpg', import.meta.url).href
+} catch {
+  profileImg = null
+}
 
 export default function Hero() {
   const scroll = (id) => {
@@ -80,45 +87,28 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Desktop: Lanyard; Mobile: PixelCard */}
+        {/* Profile Card — selalu tampil, pakai foto jika ada */}
         <div className="hero-visual">
-          <div className="hero-visual-desktop">
-            <Suspense fallback={
-              <div className="lanyard-fallback">
-                <PixelCard variant="blue" className="pixel-card-hero">
-                  <img
-                    src={profileImg}
-                    alt="Zulfikar"
-                    className="pixel-profile-img"
-                    onError={e => {
-                      e.target.style.display = 'none'
-                      e.target.nextElementSibling.style.display = 'flex'
-                    }}
-                  />
-                  <div className="profile-placeholder">Z</div>
-                </PixelCard>
-              </div>
-            }>
-              <div className="lanyard-container">
-                <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
-              </div>
-            </Suspense>
-          </div>
-
-          <div className="hero-visual-mobile">
-            <PixelCard variant="blue" className="pixel-card-hero">
+          <PixelCard variant="blue" className="pixel-card-hero">
+            {profileImg ? (
               <img
                 src={profileImg}
-                alt="Zulfikar"
+                alt="Muhammad Agung Zulfikar"
                 className="pixel-profile-img"
                 onError={e => {
                   e.target.style.display = 'none'
-                  e.target.nextElementSibling.style.display = 'flex'
+                  const placeholder = e.target.nextElementSibling
+                  if (placeholder) placeholder.style.display = 'flex'
                 }}
               />
-              <div className="profile-placeholder">Z</div>
-            </PixelCard>
-          </div>
+            ) : null}
+            <div
+              className="profile-placeholder"
+              style={{ display: profileImg ? 'none' : 'flex' }}
+            >
+              Z
+            </div>
+          </PixelCard>
         </div>
       </div>
 

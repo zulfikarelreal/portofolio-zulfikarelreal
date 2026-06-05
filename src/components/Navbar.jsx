@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import './Navbar.css'
 
-const links = ['home','about','skills','experience','services','contact']
+const links = ['home', 'about', 'skills', 'experience', 'services', 'contact']
 
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('home')
+  const [active, setActive]     = useState('home')
 
   useEffect(() => {
     const onScroll = () => {
@@ -24,7 +23,6 @@ export default function Navbar({ theme, toggleTheme }) {
   }, [])
 
   const handleClick = (id) => {
-    setOpen(false)
     const el = document.getElementById(id)
     if (el) {
       const top = el.getBoundingClientRect().top + window.pageYOffset - 75
@@ -38,7 +36,7 @@ export default function Navbar({ theme, toggleTheme }) {
         zulfikar<span>.</span>
       </button>
 
-      <ul className={`nav-links${open ? ' open' : ''}`}>
+      <ul className="nav-links">
         {links.map(id => (
           <li key={id}>
             <button
@@ -51,27 +49,17 @@ export default function Navbar({ theme, toggleTheme }) {
         ))}
       </ul>
 
-      <div className="nav-right">
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-          title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-        >
-          {theme === 'light'
-            ? <i className='bx bx-moon'></i>
-            : <i className='bx bx-sun'></i>
-          }
-        </button>
-
-        <button
-          className={`hamburger${open ? ' open' : ''}`}
-          onClick={() => setOpen(o => !o)}
-          aria-label="Menu"
-        >
-          <span/><span/><span/>
-        </button>
-      </div>
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+        title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+      >
+        {theme === 'light'
+          ? <i className='bx bx-moon'></i>
+          : <i className='bx bx-sun'></i>
+        }
+      </button>
     </nav>
   )
 }
