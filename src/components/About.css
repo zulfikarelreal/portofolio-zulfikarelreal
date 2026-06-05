@@ -1,3 +1,9 @@
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  animation: revealAnim 0.6s ease-out forwards;
+  text-align:justify;
+}
+
 .about { background: var(--bg2); }
 
 .about-grid {
@@ -10,9 +16,9 @@
 }
 
 .about-stats {
-  display: flex; gap: 32px; margin: 36px 0; flex-wrap: wrap;
+  display: flex; gap: 32px; margin: 36px 0; flex-wrap: wrap; flex-wrap: wrap;
 }
-.stat { text-align: center; }
+.stat { text-align: center;}
 .stat-num {
   display: block; font-family: var(--font-head);
   font-size: 38px; font-weight: 800;

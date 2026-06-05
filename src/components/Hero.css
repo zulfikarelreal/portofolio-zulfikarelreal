@@ -4,6 +4,11 @@
   padding: 100px 0 80px;
 }
 
+.hero-desc {
+  text-align: justify;
+  font-style: italic;
+}
+
 /* BG */
 .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .blob {
@@ -152,7 +157,7 @@
   .hero-inner { flex-direction: column; text-align: center; }
   .hero-visual { order: -1; }
   .hero-actions { justify-content: center; }
-  .hero-desc { margin: 0 auto 36px; }
+  .hero-desc { margin: 0 auto 36px; text-align: center;}
   .hero-socials { justify-content: center; }
   .scroll-down { display: none; }
   .profile-frame, .profile-img-wrap { width: 220px; height: 220px; }
@@ -161,4 +166,5 @@
   .hero { padding: 90px 0 60px; }
   .profile-frame, .profile-img-wrap { width: 180px; height: 180px; }
   .hero-socials { gap: 10px; }
+  .hero-desc { justify-content: center;}
 }

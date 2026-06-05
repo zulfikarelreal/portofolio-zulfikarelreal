@@ -3,7 +3,8 @@ import './About.css'
 
 const stats = [
   { num: '3+', label: 'Tahun Jadi Teknisi' },
-  { num: '6+', label: 'Tahun Digital Marketing' },
+  { num: '6+', label: 'Tahun Digital Marketing' }, 
+  { num: '7+', label: 'Tahun Pengalaman Kerja' },
   { num: '3.88', label: 'IPK Saat Ini' },
 ]
 
@@ -39,7 +40,7 @@ export default function About() {
             <p className="reveal">
               Saya adalah mahasiswa S1 Informatika (Kelas Sore) di Universitas Muhammadiyah
               Semarang semester 4 dengan IPK 3,88/4,00. Fokus saya di web development —
-              terutama HTML, CSS, dan JavaScript.
+              terutama HTML, CSS, JavaScript dan sedang mempelajari framework ReactJS.
             </p>
             <p className="reveal">
               Saya juga punya pengalaman lebih dari 3 tahun sebagai teknisi komputer

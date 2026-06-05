@@ -13,15 +13,15 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-bg">
-        <div className="blob blob-1"/>
-        <div className="blob blob-2"/>
-        <div className="grid-lines"/>
+        <div className="blob blob-1" />
+        <div className="blob blob-2" />
+        <div className="grid-lines" />
       </div>
 
       <div className="hero-inner">
         <div className="hero-content">
           <div className="hero-badge">
-            <span className="badge-dot"/>
+            <span className="badge-dot" />
             Available for Work
           </div>
 
@@ -32,26 +32,31 @@ export default function Hero() {
           </h1>
 
           <p className="hero-role">
-            <span className="role-accent">IT Technician</span>
+            <span className="role-accent">Computer Technician</span>
             <span className="role-sep">|</span>
-            Computer Engineer
-            <span className="role-sep">|</span>
-            Web Developer
+            Informatics Student
           </p>
 
           <p className="hero-desc">
-            Mahasiswa S1 Informatika semester 4, IPK 3.88/4.00. Punya pengalaman 3+ tahun
-            sebagai teknisi komputer dan 6+ tahun di digital marketing. Passionate di HTML,
-            CSS, dan JavaScript.
+            "When you want something, all the universe conspires in helping you
+            achieve it." <br></br> — Paulo Coelho
           </p>
 
           <div className="hero-actions">
-            <button className="btn btn-primary" onClick={() => scroll('contact')}>
-              <i className='bx bx-envelope'></i>
+            <button
+              className="btn btn-primary"
+              onClick={() => scroll("contact")}
+            >
+              <i className="bx bx-envelope"></i>
               Hire Me
             </button>
-            <a href="https://wa.me/6282123477891" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-              <i className='bx bxl-whatsapp'></i>
+            <a
+              href="https://wa.me/6282123477891"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              <i className="bx bxl-whatsapp"></i>
               Chat Now
             </a>
           </div>
@@ -59,14 +64,17 @@ export default function Hero() {
 
         <div className="hero-visual">
           <div className="profile-frame">
-            <div className="profile-ring ring-1"/>
-            <div className="profile-ring ring-2"/>
+            <div className="profile-ring ring-1" />
+            <div className="profile-ring ring-2" />
             <div className="profile-img-wrap">
               <img
                 src={profileImg}
                 alt="Zulfikar"
                 className="profile-img"
-                onError={e => { e.target.style.display='none'; e.target.nextElementSibling.style.display='flex' }}
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.nextElementSibling.style.display = "flex";
+                }}
               />
               <div className="profile-placeholder">Z</div>
             </div>
@@ -75,24 +83,48 @@ export default function Hero() {
       </div>
 
       <div className="hero-socials">
-        <a href="https://instagram.com/zulfikarelreal" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
-          <i className='bx bxl-instagram'></i>
+        <a
+          href="https://instagram.com/zulfikarelreal"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          title="Instagram"
+        >
+          <i className="bx bxl-instagram"></i>
         </a>
-        <a href="https://wa.me/6282123477891" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
-          <i className='bx bxl-whatsapp'></i>
+        <a
+          href="https://wa.me/6282123477891"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          title="WhatsApp"
+        >
+          <i className="bx bxl-whatsapp"></i>
         </a>
-        <a href="https://linkedin.com/in/muhammad-agung-zulfikar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-          <i className='bx bxl-linkedin'></i>
+        <a
+          href="https://linkedin.com/in/muhammad-agung-zulfikar"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <i className="bx bxl-linkedin"></i>
         </a>
-        <a href="http://github.com/zulfikarelreal" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-          <i className='bx bxl-github'></i>
+        <a
+          href="http://github.com/zulfikarelreal"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <i className="bx bxl-github"></i>
         </a>
       </div>
 
-      <button className="scroll-down" onClick={() => scroll('about')}>
+      <button className="scroll-down" onClick={() => scroll("about")}>
         <span>Scroll</span>
-        <i className='bx bx-chevron-down'></i>
+        <i className="bx bx-chevron-down"></i>
       </button>
     </section>
-  )
+  );
 }
