@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Muhammad Agung Zulfikar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Basic Icons -->
+  <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+  <!-- Filled Icons -->
+  <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+  <!-- Brand Icons -->
+  <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-logo">zulfikar<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="grid-lines"></div>
+    </div>
+
+    <!-- SOCIALS — di luar hero-content, posisi absolute tapi dengan left yang aman -->
+    <div class="hero-socials">
+      <a href="https://instagram.com/zulfikarelreal" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+      <a href="https://wa.me/6282123477891" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+      <a href="https://linkedin.com/in/muhammad-agung-zulfikar" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+      <a href="http://github.com/zulfikarelreal" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+    </div>
+
+    <br>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Available for Work
+        </div>
+        <h1 class="hero-title">
+          <span class="line-reveal hi">Hi, I'm</span>
+          <span class="line-reveal sub">Muhammad Agung</span>
+          <span class="line-reveal accent">Zulfikar</span>
+        </h1>
+        <p class="hero-role">
+          <span style="color: #00bcd4;"><b>IT Technician</b></span><span class="role-sep">|</span>Computer Engineer <span class="role-sep">|</span>
+          Web Developer 
+        </p>
+        <p class="hero-desc">
+          Mahasiswa S1 Informatika semester 4, IPK 3.88/4.00. Punya pengalaman 3+ tahun sebagai teknisi komputer dan 6+ tahun di digital marketing. Passionate di HTML, CSS, dan JavaScript.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Hire Me</a>
+          <a href="https://wa.me/6282123477891" target="_blank" class="btn btn-ghost">
+            <i class='bx bxl-whatsapp'></i> Chat Now
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="profile-frame">
+          <div class="profile-ring ring-1"></div>
+          <div class="profile-ring ring-2"></div>
+          <div class="profile-img-wrap">
+            <img src="assets/profile.jpg" alt="Zulfikar" class="profile-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="profile-placeholder">zulfikar</div>
+          </div>
+          <!-- <div class="profile-card card-top">
+            <i class='bx bxl-github'></i>
+            <span>github.com/zulfikarelreal</span>
+          </div>
+          <div class="profile-card card-bottom">
+            <span class="status-dot"></span>
+            <span>IPK 3.88 / 4.00</span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-down">
+      <span>Scroll</span>
+      <i class='bx bx-chevron-down'></i>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-tag">About Me</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Teknisi Computer <span class="accent">yang suka banyak hal</span></h2>
+          <p>Saya adalah mahasiswa S1 Informatika (Kelas Sore) di Universitas Muhammadiyah Semarang semester 4 dengan IPK 3,88/4,00. Fokus saya di web development — terutama HTML, CSS, dan JavaScript.</p>
+          <p>Saya juga punya pengalaman lebih dari 3 tahun sebagai teknisi komputer (perakitan, instalasi OS, troubleshooting) dan 6+ tahun di digital marketing sejak SMP. Terbiasa kerja mandiri maupun dalam tim.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num" data-target="3">0</span>
+              <span class="stat-label">Tahun Jadi Teknisi</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-target="6">0</span>
+              <span class="stat-label">Tahun Digital Marketing</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num-gpa">3.88</span>
+              <span class="stat-label">IPK Saat Ini</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary">Let's Connect</a>
+        </div>
+        <div class="about-cards">
+          <div class="info-card">
+            <i class="bx bx-education"></i>
+            <div>
+              <h4>Pendidikan</h4>
+              <p>S1 Informatika – UNIMUS<br><small>2024 – Sekarang</small></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class='bx bx-map'></i>
+            <div>
+              <h4>Lokasi</h4>
+              <p>Demak, Jawa Tengah 🇮🇩</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class='bx bx-store'></i>
+            <div>
+              <h4>E-Commerce</h4>
+              <p><a href="https://www.itemku.com/t/zulfikar-elreal" target="_blank">Itemku Store ↗</a></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class='bx bx-mail-send'></i>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:zulkfikarelreal@gmail.com">zulkfikarelreal@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-tag">Tech Stack</div>
+      <h2 class="section-title">My <span class="accent">Skills</span></h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>CORE - IT & Teknis</h3>
+          <div class="skill-pills">
+            <span class="pill active-pill">Troubleshoot PC / Laptop</span>
+            <span class="pill active-pill">Repair PC / Laptop</span>
+            <span class="pill active-pill">Instalasi OS (Windows, Linux & Other)</span>
+            <span class="pill active-pill">Rakit PC / Laptop</span>
+            <span class="pill active-pill">Network Config</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Web Dev</h3>
+          <div class="skill-pills">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">ReactJS</span>
+            <span class="pill">Responsive Design</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platform</h3>
+          <div class="skill-pills">
+            <span class="pill">Git & GitHub</span>
+            <span class="pill">VS Code</span>
+            <span class="pill">MS Word & Excel</span>
+            <span class="pill">Editing Foto & Video</span>
+            <span class="pill">Adobe Photoshop</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Lainnya</h3>
+          <div class="skill-pills">
+            <span class="pill">Digital Marketing</span>
+            <span class="pill">Analisis Teknikal Saham</span>
+            <span class="pill">Bahasa Inggris</span>
+            <span class="pill">Java (Basic)</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-bars">
+        <div class="skill-bar-item">
+          <div class="sb-label"><span>HTML & CSS</span><span>85%</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:85%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="sb-label"><span>JavaScript</span><span>65%</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:65%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="sb-label"><span>ReactJS</span><span>30%</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:30%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="sb-label"><span>PC Troubleshooting & Maintenance</span><span>90%</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:90%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="sb-label"><span>Digital Marketing</span><span>80%</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:80%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="sb-label"><span>Git & GitHub</span><span>60%</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:60%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-tag">Perjalanan Saya</div>
+      <h2 class="section-title">Experience & <span class="accent">Education</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2024 – Sekarang</div>
+          <div class="tl-card">
+            <span class="tl-tag edu">Pendidikan</span>
+            <h3>S1 Informatika</h3>
+            <p class="tl-company">Universitas Muhammadiyah Semarang (Kelas Sore)</p>
+            <p>IPK 3.88 / 4.00 — Semester 4 On Going</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Agu 2022 – Feb 2026</div>
+          <div class="tl-card">
+            <span class="tl-tag work">Pengalaman Kerja</span>
+            <h3>Teknisi & Marketing</h3>
+            <p class="tl-company">Home Computer Semarang</p>
+            <ul class="tl-list">
+              <li>Perakitan PC, Instalasi OS & quality control hardware</li>
+              <li>Konsultasi spesifikasi komputer sesuai kebutuhan pelanggan</li>
+              <li>Desain konten foto & video untuk promosi produk</li>
+              <li>Mengelola pemasaran digital dan iklan online</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2019 – 2023</div>
+          <div class="tl-card">
+            <span class="tl-tag work">Pengalaman Kerja</span>
+            <h3>Owner — Toko Voucher Games</h3>
+            <p class="tl-company"><a href="https://www.itemku.com/t/zulfikar-elreal" target="_blank">Zulfikar Elreal (Itemku & Shopee) ↗</a></p>
+            <ul class="tl-list">
+              <li>Mengelola penjualan voucher game via e-commerce & sosmed</li>
+              <li>Listing produk, promosi online, dan pelayanan pelanggan</li>
+              <li>Operasional harian toko online secara mandiri</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Mei – Des 2021</div>
+          <div class="tl-card">
+            <span class="tl-tag intern">Magang</span>
+            <h3>Magang Teknisi</h3>
+            <p class="tl-company">Rajawali Com</p>
+            <ul class="tl-list">
+              <li>Perakitan, instalasi dan maintenance PC / Laptop</li>
+              <li>Quality check hardware & pelayanan customer</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2019 – 2022</div>
+          <div class="tl-card">
+            <span class="tl-tag edu">Pendidikan</span>
+            <h3>Teknik Komputer dan Jaringan</h3>
+            <p class="tl-company">SMK Negeri 5 Semarang</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATES -->
+    <div class="cert-section">
+      <h3 class="cert-title">Sertifikat <span class="accent">& Penghargaan</span></h3>
+      <div class="cert-grid">
+        <div class="cert-card" onclick="openCertModal('ISMS ISO 27001:2022','assets/cert-isms.jpg')">
+          <i class='bx bx-shield-quarter'></i>
+          <div>
+            <h4>ISMS ISO 27001:2022</h4>
+            <p>Certificate of Participation – Information Security Management System</p>
+          </div>
+          <span class="cert-badge"><i class='bx bx-image-alt'></i> Lihat</span>
+        </div>
+        <div class="cert-card" onclick="openCertModal('Java Fundamentals','assets/cert-java-fundamentals.jpg')">
+          <i class='bx bxl-java'></i>
+          <div>
+            <h4>Java Fundamentals</h4>
+            <p>Award of Final Exam Completion – Oracle Academy</p>
+          </div>
+          <span class="cert-badge"><i class='bx bx-image-alt'></i> Lihat</span>
+        </div>
+        <div class="cert-card" onclick="openCertModal('Java Programming (English)','assets/cert-java-programming.jpg')">
+          <i class='bx bx-code-alt'></i>
+          <div>
+            <h4>Java Programming (English)</h4>
+            <p>Award of Completion – Programming Course</p>
+          </div>
+          <span class="cert-badge"><i class='bx bx-image-alt'></i> Lihat</span>
+        </div>
+        <div class="cert-card" onclick="openCertModal('BNSP – KKNI Level II','assets/cert-bnsp.jpg')">
+          <i class='bx bx-certification'></i>
+          <div>
+            <h4>BNSP – KKNI Level II</h4>
+            <p>Sertifikat Kompetensi Konfigurasi Perangkat Jaringan Komputer</p>
+          </div>
+          <span class="cert-badge"><i class='bx bx-image-alt'></i> Lihat</span>
+        </div>
+      </div>
+
+  <!-- CV BAR -->
+  <div class="cv-bar">
+    <div class="cv-bar-info">
+      <h4>Curriculum Vitae</h4>
+      <p>Muhammad Agung Zulfikar</p>
+    </div>
+    <div class="cv-bar-actions">
+      <a href="assets/CV - Muhammad Agung Zulfikar.pdf" target="_blank" class="btn btn-ghost">
+        <i class='bx bx-show'></i> View CV
+      </a>
+      <a href="assets/CV - Muhammad Agung Zulfikar.pdf" download="CV-Muhammad-Agung-Zulfikar.pdf" class="btn btn-primary">
+        <i class='bx bx-download'></i> Download CV
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATE MODAL -->
+<div class="modal-overlay" id="certModalOverlay" onclick="closeCertModalOutside(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="certModalTitle">Sertifikat</h3>
+      <button class="modal-close" onclick="closeCertModal()" aria-label="Tutup">✕</button>
+    </div>
+    <div class="modal-img-wrap">
+      <img id="certModalImg" src="" alt="Sertifikat"
+        onerror="this.style.display='none';document.getElementById('certModalPH').style.display='flex'">
+      <div class="modal-img-placeholder" id="certModalPH" style="display:none">
+        <i class='bx bx-image'></i>
+        <span>Gambar belum tersedia</span>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <span id="certModalName"></span>
+      <a id="certModalDl" href="#" download class="btn btn-ghost" style="padding:8px 18px;font-size:13px;">
+        <i class='bx bx-download'></i> Download
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-tag">What I Do</div>
+      <h2 class="section-title">My <span class="accent">Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card featured">
+          <div class="service-icon"><i class='bx bx-wrench'></i></div>
+          <h3>Servis & Rakit PC</h3>
+          <p>Perakitan PC custom, instalasi OS, troubleshooting hardware/software, dan maintenance rutin laptop/PC.</p>
+          <span class="service-tag">IT Technician</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class='bx bx-code-curly'></i></div>
+          <h3>Web Development</h3>
+          <p>Membuat website dari nol dengan HTML, CSS, dan JavaScript yang clean, fast, dan responsif di semua device.</p>
+          <span class="service-tag">HTML · CSS · JS</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class='bx bx-mobile-alt'></i></div>
+          <h3>Responsive Design</h3>
+          <p>Memastikan tampilan website kamu perfect di HP, tablet, maupun desktop. No more broken layouts.</p>
+          <span class="service-tag">UI/UX</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class='bx bx-trending-up'></i></div>
+          <h3>Digital Marketing</h3>
+          <p>Bantu bisnis kamu grow secara online — dari konten sosmed, iklan, sampai manajemen toko e-commerce.</p>
+          <span class="service-tag">Marketing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Let's <span class="accent">Work Together</span></h2>
+      <p class="contact-sub">React out pada kontak dibawah ini jika anda memiliki kebutuhan atau informasi lebih lanjut.</p>
+      <div class="contact-grid">
+        <div class="contact-links">
+          <a href="https://wa.me/6282123477891" target="_blank" class="contact-card">
+            <div class="cc-icon wa"><i class='bx bxl-whatsapp'></i></div>
+            <div class="cc-info">
+              <span class="cc-label">WhatsApp</span>
+              <span class="cc-val">082123477891</span>
+            </div>
+            <i class='bx bx-chevron-right cc-arrow'></i>
+          </a>
+          <a href="mailto:zulkfikarelreal@gmail.com" class="contact-card">
+            <div class="cc-icon em"><i class='bx bx-envelope'></i></div>
+            <div class="cc-info">
+              <span class="cc-label">Email</span>
+              <span class="cc-val">zulkfikarelreal@gmail.com</span>
+            </div>
+            <i class='bx bx-chevron-right cc-arrow'></i>
+          </a>
+          <a href="https://linkedin.com/in/muhammad-agung-zulfikar" target="_blank" class="contact-card">
+            <div class="cc-icon li"><i class='bx bxl-linkedin'></i></div>
+            <div class="cc-info">
+              <span class="cc-label">LinkedIn</span>
+              <span class="cc-val">muhammad-agung-zulfikar</span>
+            </div>
+            <i class='bx bx-chevron-right cc-arrow'></i>
+          </a>
+          <a href="http://github.com/zulfikarelreal" target="_blank" class="contact-card">
+            <div class="cc-icon gh"><i class='bx bxl-github'></i></div>
+            <div class="cc-info">
+              <span class="cc-label">GitHub</span>
+              <span class="cc-val">zulfikarelreal</span>
+            </div>
+            <i class='bx bx-chevron-right cc-arrow'></i>
+          </a>
+          <a href="https://instagram.com/zulfikarelreal" target="_blank" class="contact-card">
+            <div class="cc-icon ig"><i class='bx bxl-instagram'></i></div>
+            <div class="cc-info">
+              <span class="cc-label">Instagram</span>
+              <span class="cc-val">@zulfikarelreal</span>
+            </div>
+            <i class='bx bx-chevron-right cc-arrow'></i>
+          </a>
+          <a href="https://www.itemku.com/t/zulfikar-elreal" target="_blank" class="contact-card">
+            <div class="cc-icon ik"><i class='bx bx-store'></i></div>
+            <div class="cc-info">
+              <span class="cc-label">Itemku Store</span>
+              <span class="cc-val">zulfikar-elreal</span>
+            </div>
+            <i class='bx bx-chevron-right cc-arrow'></i>
+          </a>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <h3>Send a Message</h3>
+          <div class="form-group">
+            <input type="text" id="fname" placeholder="Your Name" required>
+            <label for="fname">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="femail" placeholder="Email Address" required>
+            <label for="femail">Email Address</label>
+          </div>
+          <div class="form-group">
+            <textarea id="fmsg" placeholder="Your Message" rows="4" required></textarea>
+            <label for="fmsg">Your Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary full-btn">
+            Send via WhatsApp <i class='bx bxl-whatsapp'></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#home" class="nav-logo">zulfikar<span>.</span></a>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Muhammad Agung Zulfikar · Demak, Jawa Tengah 🇮🇩</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/zulfikarelreal" target="_blank"><i class='bx bxl-instagram'></i></a>
+          <a href="https://wa.me/6282123477891" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+          <a href="https://linkedin.com/in/muhammad-agung-zulfikar" target="_blank"><i class='bx bxl-linkedin'></i></a>
+          <a href="http://github.com/zulfikarelreal" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Back to top">
+    <i class='bx bx-up-arrow-alt'></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
