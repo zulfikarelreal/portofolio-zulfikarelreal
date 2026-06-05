@@ -35,7 +35,7 @@ export default function Contact() {
         <div className="section-tag reveal">Get In Touch</div>
         <h2 className="section-title reveal">Let's <span className="accent">Work Together</span></h2>
         <p className="contact-sub reveal">
-          React out pada kontak dibawah ini jika anda memiliki kebutuhan atau informasi lebih lanjut.
+          Reach out pada kontak dibawah ini jika anda memiliki kebutuhan atau informasi lebih lanjut.
         </p>
 
         <div className="contact-grid">
