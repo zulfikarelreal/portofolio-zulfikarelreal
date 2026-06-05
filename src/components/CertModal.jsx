@@ -17,7 +17,9 @@ export default function CertModal({ cert, onClose }) {
       <div className="modal-box">
         <div className="modal-header">
           <h3>{cert.title}</h3>
-          <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+          <button className="modal-close" onClick={onClose} aria-label="Close">
+            <i className='bx bx-x'></i>
+          </button>
         </div>
         <div className="modal-img-wrap">
           <img
@@ -29,14 +31,14 @@ export default function CertModal({ cert, onClose }) {
             }}
           />
           <div className="modal-img-placeholder" style={{ display: 'none' }}>
-            <span style={{ fontSize: 40 }}>🖼️</span>
+            <i className='bx bx-image' style={{ fontSize: 48, color: 'var(--accent)' }}></i>
             <span>Gambar belum tersedia</span>
           </div>
         </div>
         <div className="modal-footer">
           <span>{cert.title}</span>
           <a href={cert.img} download className="btn btn-ghost" style={{ padding: '8px 18px', fontSize: 13 }}>
-            ⬇ Download
+            <i className='bx bx-download'></i> Download
           </a>
         </div>
       </div>

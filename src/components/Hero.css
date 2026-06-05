@@ -31,6 +31,7 @@
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
+  opacity: 0.5;
 }
 
 /* INNER */
@@ -47,7 +48,7 @@
   display: inline-flex; align-items: center; gap: 8px;
   padding: 6px 14px;
   background: rgba(var(--accent-rgb),0.08);
-  border: 1px solid rgba(var(--accent-rgb),0.2);
+  border: 1px solid rgba(var(--accent-rgb),0.25);
   border-radius: 100px; font-size: 13px; font-weight: 500;
   color: var(--accent); margin-bottom: 28px;
   animation: fadeUp 0.6s ease 0.2s both;
@@ -68,7 +69,7 @@
 }
 .hi    { font-size: clamp(20px,3.5vw,38px); color: var(--text2); font-weight: 500; animation-delay: 0.3s; }
 .accent-line { font-size: clamp(46px,7vw,80px); color: var(--accent); animation-delay: 0.45s; }
-.sub   { font-size: clamp(22px,3.8vw,42px); color: var(--text2); font-weight: 600; animation-delay: 0.6s; }
+.sub   { font-size: clamp(22px,3.8vw,42px); color: var(--text); font-weight: 700; animation-delay: 0.6s; }
 @keyframes slideUp { from{transform:translateY(60px);opacity:0} to{transform:translateY(0);opacity:1} }
 
 .hero-role {
@@ -76,7 +77,7 @@
   margin-bottom: 20px; animation: fadeUp 0.7s ease 0.75s both;
 }
 .role-accent { color: var(--accent); font-weight: 600; }
-.role-sep { color: var(--accent); margin: 0 8px; }
+.role-sep { color: var(--accent2); margin: 0 8px; opacity: 0.6; }
 
 .hero-desc {
   font-size: 15px; color: var(--text2); max-width: 480px;
@@ -96,7 +97,7 @@
 .profile-frame { position: relative; width: 280px; height: 280px; }
 .profile-ring {
   position: absolute; border-radius: 50%;
-  border: 1px solid rgba(var(--accent-rgb),0.15);
+  border: 1px solid rgba(var(--accent-rgb),0.2);
 }
 .ring-1 { inset: -24px; animation: spin 20s linear infinite; }
 .ring-2 { inset: -48px; animation: spin 30s linear infinite reverse; border-style: dashed; }
@@ -123,12 +124,12 @@
 .hero-socials a {
   width: 42px; height: 42px; display: flex;
   align-items: center; justify-content: center;
-  border: 1px solid var(--border); border-radius: 50%;
-  color: var(--text2); transition: var(--t);
+  border: 1.5px solid var(--border); border-radius: 50%;
+  color: var(--text2); transition: var(--t); font-size: 20px;
 }
 .hero-socials a:hover {
   border-color: var(--accent); color: var(--accent);
-  transform: scale(1.1);
+  transform: scale(1.1); background: rgba(var(--accent-rgb),0.08);
 }
 
 /* SCROLL DOWN */

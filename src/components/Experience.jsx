@@ -1,4 +1,9 @@
 import { useEffect, useRef } from 'react'
+import cvFile from '../assets/CV - Muhammad Agung Zulfikar.pdf'
+import certIsms from '../assets/cert-isms.jpg'
+import certJavaFund from '../assets/cert-java-fundamentals.jpg'
+import certJavaProg from '../assets/cert-java-programming.jpg'
+import certBnsp from '../assets/cert-bnsp.jpg'
 import './Experience.css'
 
 const timeline = [
@@ -47,10 +52,10 @@ const timeline = [
 ]
 
 const certs = [
-  { icon: '🛡️', title: 'ISMS ISO 27001:2022', desc: 'Certificate of Participation – Information Security Management System', img: 'assets/cert-isms.jpg' },
-  { icon: '☕', title: 'Java Fundamentals', desc: 'Award of Final Exam Completion – Oracle Academy', img: 'assets/cert-java-fundamentals.jpg' },
-  { icon: '💻', title: 'Java Programming (English)', desc: 'Award of Completion – Programming Course', img: 'assets/cert-java-programming.jpg' },
-  { icon: '📜', title: 'BNSP – KKNI Level II', desc: 'Sertifikat Kompetensi Konfigurasi Perangkat Jaringan Komputer', img: 'assets/cert-bnsp.jpg' },
+  { icon: 'bx bxs-shield-alt-2', title: 'ISMS ISO 27001:2022', desc: 'Certificate of Participation – Information Security Management System', img: certIsms },
+  { icon: 'bx bxl-java', title: 'Java Fundamentals', desc: 'Award of Final Exam Completion – Oracle Academy', img: certJavaFund },
+  { icon: 'bx bx-code-block', title: 'Java Programming (English)', desc: 'Award of Completion – Programming Course', img: certJavaProg },
+  { icon: 'bx bxs-award', title: 'BNSP – KKNI Level II', desc: 'Sertifikat Kompetensi Konfigurasi Perangkat Jaringan Komputer', img: certBnsp },
 ]
 
 export default function Experience({ onOpenCert }) {
@@ -109,7 +114,7 @@ export default function Experience({ onOpenCert }) {
                 tabIndex={0}
                 onKeyDown={e => e.key === 'Enter' && onOpenCert({ title: c.title, img: c.img })}
               >
-                <span className="cert-icon">{c.icon}</span>
+                <span className="cert-icon"><i className={c.icon}></i></span>
                 <div>
                   <h4>{c.title}</h4>
                   <p>{c.desc}</p>
@@ -127,19 +132,19 @@ export default function Experience({ onOpenCert }) {
             </div>
             <div className="cv-bar-actions">
               <a
-                href="assets/CV - Muhammad Agung Zulfikar.pdf"
+                href={cvFile}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-ghost"
               >
-                👁 View CV
+                <i className='bx bx-show'></i> View CV
               </a>
               <a
-                href="assets/CV - Muhammad Agung Zulfikar.pdf"
+                href={cvFile}
                 download="CV-Muhammad-Agung-Zulfikar.pdf"
                 className="btn btn-primary"
               >
-                ⬇ Download CV
+                <i className='bx bx-download'></i> Download CV
               </a>
             </div>
           </div>

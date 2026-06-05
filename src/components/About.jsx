@@ -8,10 +8,10 @@ const stats = [
 ]
 
 const cards = [
-  { icon: '🎓', title: 'Pendidikan', desc: 'S1 Informatika – UNIMUS', sub: '2024 – Sekarang' },
-  { icon: '📍', title: 'Lokasi', desc: 'Demak, Jawa Tengah 🇮🇩' },
-  { icon: '🛒', title: 'E-Commerce', href: 'https://www.itemku.com/t/zulfikar-elreal', desc: 'Itemku Store ↗' },
-  { icon: '✉️', title: 'Email', href: 'mailto:zulkfikarelreal@gmail.com', desc: 'zulkfikarelreal@gmail.com' },
+  { icon: 'bx bxs-graduation', title: 'Pendidikan', desc: 'S1 Informatika – UNIMUS', sub: '2024 – Sekarang' },
+  { icon: 'bx bxs-map', title: 'Lokasi', desc: 'Demak, Jawa Tengah 🇮🇩' },
+  { icon: 'bx bxs-store', title: 'E-Commerce', href: 'https://www.itemku.com/t/zulfikar-elreal', desc: 'Itemku Store ↗' },
+  { icon: 'bx bxs-envelope', title: 'Email', href: 'mailto:zulkfikarelreal@gmail.com', desc: 'zulkfikarelreal@gmail.com' },
 ]
 
 export default function About() {
@@ -61,6 +61,7 @@ export default function About() {
                 if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 75, behavior: 'smooth' })
               }}
             >
+              <i className='bx bx-link-external'></i>
               Let's Connect
             </button>
           </div>
@@ -68,7 +69,7 @@ export default function About() {
           <div className="about-cards">
             {cards.map(c => (
               <div className="info-card reveal" key={c.title}>
-                <span className="card-icon">{c.icon}</span>
+                <span className="card-icon"><i className={c.icon}></i></span>
                 <div>
                   <h4>{c.title}</h4>
                   {c.href

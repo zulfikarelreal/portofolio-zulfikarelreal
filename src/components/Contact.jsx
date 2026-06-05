@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import './Contact.css'
 
 const links = [
-  { href: 'https://wa.me/6282123477891', icon: '📱', label: 'WhatsApp', val: '082123477891', cls: 'wa' },
-  { href: 'mailto:zulkfikarelreal@gmail.com', icon: '✉️', label: 'Email', val: 'zulkfikarelreal@gmail.com', cls: 'em' },
-  { href: 'https://linkedin.com/in/muhammad-agung-zulfikar', icon: '💼', label: 'LinkedIn', val: 'muhammad-agung-zulfikar', cls: 'li' },
-  { href: 'http://github.com/zulfikarelreal', icon: '🐙', label: 'GitHub', val: 'zulfikarelreal', cls: 'gh' },
-  { href: 'https://instagram.com/zulfikarelreal', icon: '📸', label: 'Instagram', val: '@zulfikarelreal', cls: 'ig' },
-  { href: 'https://www.itemku.com/t/zulfikar-elreal', icon: '🛒', label: 'Itemku Store', val: 'zulfikar-elreal', cls: 'ik' },
+  { href: 'https://wa.me/6282123477891', icon: 'bx bxl-whatsapp', label: 'WhatsApp', val: '082123477891', cls: 'wa' },
+  { href: 'mailto:zulkfikarelreal@gmail.com', icon: 'bx bx-envelope', label: 'Email', val: 'zulkfikarelreal@gmail.com', cls: 'em' },
+  { href: 'https://linkedin.com/in/muhammad-agung-zulfikar', icon: 'bx bxl-linkedin', label: 'LinkedIn', val: 'muhammad-agung-zulfikar', cls: 'li' },
+  { href: 'http://github.com/zulfikarelreal', icon: 'bx bxl-github', label: 'GitHub', val: 'zulfikarelreal', cls: 'gh' },
+  { href: 'https://instagram.com/zulfikarelreal', icon: 'bx bxl-instagram', label: 'Instagram', val: '@zulfikarelreal', cls: 'ig' },
+  { href: 'https://www.itemku.com/t/zulfikar-elreal', icon: 'bx bxs-store', label: 'Itemku Store', val: 'zulfikar-elreal', cls: 'ik' },
 ]
 
 export default function Contact() {
@@ -48,12 +48,12 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="contact-card reveal"
               >
-                <div className={`cc-icon ${l.cls}`}>{l.icon}</div>
+                <div className={`cc-icon ${l.cls}`}><i className={l.icon}></i></div>
                 <div className="cc-info">
                   <span className="cc-label">{l.label}</span>
                   <span className="cc-val">{l.val}</span>
                 </div>
-                <span className="cc-arrow">›</span>
+                <i className='bx bx-chevron-right cc-arrow'></i>
               </a>
             ))}
           </div>
@@ -88,7 +88,8 @@ export default function Contact() {
               />
             </div>
             <button type="submit" className="btn btn-primary full-btn">
-              Send via WhatsApp 📲
+              <i className='bx bxl-whatsapp'></i>
+              Send via WhatsApp
             </button>
           </form>
         </div>

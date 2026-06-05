@@ -1,54 +1,61 @@
 # Portfolio — Muhammad Agung Zulfikar
 
-React + Vite portfolio dengan light/dark mode.
+React + Vite portfolio dengan light/dark mode, Boxicons, dan auto-deploy ke GitHub Pages.
 
 ## Setup
 
 ```bash
-# Install dependencies
-pnpm install
-# atau
 npm install
+npm run dev       # development
+npm run build     # production build
+npm run preview   # preview build
+```
 
-# Run dev server
-pnpm dev
-# atau
-npm run dev
+## Assets — PENTING
 
-# Build production
-pnpm build
+Letakkan semua file asset di folder **`src/assets/`** (bukan `public/assets/`):
+
+```
+src/assets/
+├── profile.jpg
+├── cert-isms.jpg
+├── cert-java-fundamentals.jpg
+├── cert-java-programming.jpg
+├── cert-bnsp.jpg
+└── CV - Muhammad Agung Zulfikar.pdf
+```
+
+## Deploy ke GitHub Pages (Otomatis)
+
+1. Push ke branch `main`
+2. Di Settings GitHub repo → Pages → Source: **GitHub Actions**
+3. GitHub Actions akan otomatis build & deploy setiap push
+
+## Deploy Manual (opsional)
+
+```bash
+npm run deploy
 ```
 
 ## Struktur
 
 ```
 src/
-├── App.jsx              # Root component + theme state
-├── main.jsx             # Entry point
+├── App.jsx
+├── main.jsx
+├── assets/          ← letakkan foto, sertifikat, CV di sini
 ├── styles/
-│   └── index.css        # Global styles + CSS variables (light/dark)
+│   └── index.css
 └── components/
-    ├── Cursor.jsx        # Custom cursor
-    ├── Navbar.jsx        # Nav + theme toggle button
-    ├── Hero.jsx          # Landing section
-    ├── About.jsx         # About + stats + cards
-    ├── Skills.jsx        # Pills + animated bars
-    ├── Experience.jsx    # Timeline + sertifikat + CV bar
-    ├── Services.jsx      # Service cards
-    ├── Contact.jsx       # Contact links + WA form
-    ├── Footer.jsx        # Footer
-    ├── ScrollTop.jsx     # Scroll-to-top button
-    └── CertModal.jsx     # Certificate image modal
+    ├── Cursor.jsx
+    ├── Navbar.jsx
+    ├── Hero.jsx
+    ├── About.jsx
+    ├── Skills.jsx
+    ├── Experience.jsx
+    ├── Services.jsx
+    ├── Contact.jsx
+    ├── Footer.jsx
+    ├── ScrollTop.jsx
+    └── CertModal.jsx
 ```
-
-## Assets
-
-Letakkan file berikut di folder `public/assets/`:
-- `profile.jpg` — foto profil
-- `cert-isms.jpg`, `cert-java-fundamentals.jpg`, `cert-java-programming.jpg`, `cert-bnsp.jpg` — sertifikat
-- `CV - Muhammad Agung Zulfikar.pdf` — CV
-
-## Theme
-
-Light mode adalah default. Toggle dark/light dengan tombol bulan/matahari di navbar.
-CSS variables di `src/styles/index.css` menggunakan `[data-theme]` attribute pada `<html>`.

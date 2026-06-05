@@ -15,7 +15,7 @@ export default function ScrollTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Back to top"
     >
-      ↑
+      <i className='bx bx-up-arrow-alt'></i>
     </button>
   )
 }
