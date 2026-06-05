@@ -1,0 +1,105 @@
+/* Fixed wrapper that holds logo + theme toggle + StaggeredMenu */
+.app-menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Logo — top left */
+.app-logo {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  padding: 22px 0;
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 800;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  transition: color var(--t);
+  pointer-events: all;
+  z-index: 1050;
+}
+.app-logo span { color: var(--accent); }
+.app-logo:hover { color: var(--accent); }
+
+/* Theme toggle — sits between logo and menu button */
+.app-theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: calc(5% + 120px);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--t);
+  font-size: 20px;
+  pointer-events: all;
+  z-index: 1050;
+}
+.app-theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(20deg);
+}
+
+/* Override StaggeredMenu header to be transparent (logo/toggle handled by App) */
+.app-menu-wrapper .staggered-menu-wrapper {
+  pointer-events: none;
+}
+.app-menu-wrapper .staggered-menu-header {
+  pointer-events: none;
+  background: transparent !important;
+}
+.app-menu-wrapper .sm-logo {
+  display: none; /* logo handled by app-logo */
+}
+.app-menu-wrapper .sm-toggle {
+  pointer-events: all;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.app-menu-wrapper .staggered-menu-panel {
+  pointer-events: all;
+}
+
+/* Panel text colors for dark/light mode */
+.app-menu-wrapper .sm-panel-item {
+  color: #fff !important;
+  font-size: 3rem;
+}
+.app-menu-wrapper .sm-panel-item:hover {
+  color: rgba(255,255,255,0.7) !important;
+}
+.app-menu-wrapper .sm-socials-title {
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.app-menu-wrapper .sm-socials-link {
+  color: rgba(255,255,255,0.85) !important;
+}
+.app-menu-wrapper .sm-socials-link:hover {
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .app-theme-toggle {
+    right: calc(5% + 80px);
+  }
+}

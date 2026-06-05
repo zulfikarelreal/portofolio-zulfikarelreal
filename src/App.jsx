@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Navbar from './components/Navbar'
+import { StaggeredMenu } from './components/StaggeredMenu'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -11,6 +11,23 @@ import ScrollTop from './components/ScrollTop'
 import CertModal from './components/CertModal'
 import Cursor from './components/Cursor'
 import './styles/index.css'
+import './components/AppMenu.css'
+
+const menuItems = [
+  { label: 'Home', ariaLabel: 'Ke halaman Home', link: '#home' },
+  { label: 'About', ariaLabel: 'Tentang saya', link: '#about' },
+  { label: 'Skills', ariaLabel: 'Keahlian saya', link: '#skills' },
+  { label: 'Experience', ariaLabel: 'Pengalaman saya', link: '#experience' },
+  { label: 'Services', ariaLabel: 'Layanan saya', link: '#services' },
+  { label: 'Contact', ariaLabel: 'Hubungi saya', link: '#contact' },
+]
+
+const socialItems = [
+  { label: 'Instagram', link: 'https://instagram.com/zulfikarelreal' },
+  { label: 'WhatsApp', link: 'https://wa.me/6282123477891' },
+  { label: 'LinkedIn', link: 'https://linkedin.com/in/muhammad-agung-zulfikar' },
+  { label: 'GitHub', link: 'http://github.com/zulfikarelreal' },
+]
 
 export default function App() {
   const [theme, setTheme] = useState('light')
@@ -22,10 +39,66 @@ export default function App() {
 
   const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light')
 
+  // Smooth scroll for StaggeredMenu anchor links
+  useEffect(() => {
+    const handleAnchorClick = (e) => {
+      const target = e.target.closest('a[href^="#"]')
+      if (!target) return
+      e.preventDefault()
+      const id = target.getAttribute('href').slice(1)
+      const el = document.getElementById(id)
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.pageYOffset - 75
+        window.scrollTo({ top, behavior: 'smooth' })
+      }
+    }
+    document.addEventListener('click', handleAnchorClick)
+    return () => document.removeEventListener('click', handleAnchorClick)
+  }, [])
+
   return (
     <div className="app">
       <Cursor />
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+
+      {/* StaggeredMenu — fixed overlay */}
+      <div className="app-menu-wrapper">
+        <StaggeredMenu
+          position="right"
+          items={menuItems}
+          socialItems={socialItems}
+          displaySocials={true}
+          displayItemNumbering={true}
+          menuButtonColor={theme === 'dark' ? '#e2e8f8' : '#0f1729'}
+          openMenuButtonColor="#ffffff"
+          changeMenuColorOnOpen={true}
+          colors={['rgba(37,99,235,0.85)', 'rgba(37,99,235,0.97)']}
+          logoUrl={null}
+          accentColor="var(--accent)"
+          isFixed={true}
+        />
+
+        {/* Theme toggle — sits in top-left of the fixed header */}
+        <button
+          className="app-theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+        >
+          {theme === 'light'
+            ? <i className='bx bx-moon'></i>
+            : <i className='bx bx-sun'></i>
+          }
+        </button>
+
+        {/* Logo */}
+        <button
+          className="app-logo"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          zulfikar<span>.</span>
+        </button>
+      </div>
+
       <Hero />
       <About />
       <Skills />

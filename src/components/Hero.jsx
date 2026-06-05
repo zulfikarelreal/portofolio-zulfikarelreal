@@ -1,3 +1,7 @@
+import { Suspense } from 'react'
+import Lanyard from './Lanyard'
+import BlurText from './BlurText'
+import PixelCard from './PixelCard'
 import profileImg from '../assets/profile.jpg'
 import './Hero.css'
 
@@ -27,8 +31,22 @@ export default function Hero() {
 
           <h1 className="hero-title">
             <span className="line-reveal hi">Hi, I'm</span>
-            <span className="line-reveal sub">Muhammad Agung</span>
-            <span className="line-reveal accent-line">Zulfikar</span>
+            <BlurText
+              text="Muhammad Agung"
+              delay={120}
+              animateBy="words"
+              direction="top"
+              className="blur-name-sub"
+              stepDuration={0.4}
+            />
+            <BlurText
+              text="Zulfikar"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="blur-name-accent"
+              stepDuration={0.45}
+            />
           </h1>
 
           <p className="hero-role">
@@ -39,13 +57,13 @@ export default function Hero() {
 
           <p className="hero-desc">
             "When you want something, all the universe conspires in helping you
-            achieve it." <br></br> — Paulo Coelho
+            achieve it." <br /> — Paulo Coelho
           </p>
 
           <div className="hero-actions">
             <button
               className="btn btn-primary"
-              onClick={() => scroll("contact")}
+              onClick={() => scroll('contact')}
             >
               <i className="bx bx-envelope"></i>
               Hire Me
@@ -62,69 +80,67 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Desktop: Lanyard; Mobile: PixelCard */}
         <div className="hero-visual">
-          <div className="profile-frame">
-            <div className="profile-ring ring-1" />
-            <div className="profile-ring ring-2" />
-            <div className="profile-img-wrap">
+          <div className="hero-visual-desktop">
+            <Suspense fallback={
+              <div className="lanyard-fallback">
+                <PixelCard variant="blue" className="pixel-card-hero">
+                  <img
+                    src={profileImg}
+                    alt="Zulfikar"
+                    className="pixel-profile-img"
+                    onError={e => {
+                      e.target.style.display = 'none'
+                      e.target.nextElementSibling.style.display = 'flex'
+                    }}
+                  />
+                  <div className="profile-placeholder">Z</div>
+                </PixelCard>
+              </div>
+            }>
+              <div className="lanyard-container">
+                <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+              </div>
+            </Suspense>
+          </div>
+
+          <div className="hero-visual-mobile">
+            <PixelCard variant="blue" className="pixel-card-hero">
               <img
                 src={profileImg}
                 alt="Zulfikar"
-                className="profile-img"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextElementSibling.style.display = "flex";
+                className="pixel-profile-img"
+                onError={e => {
+                  e.target.style.display = 'none'
+                  e.target.nextElementSibling.style.display = 'flex'
                 }}
               />
               <div className="profile-placeholder">Z</div>
-            </div>
+            </PixelCard>
           </div>
         </div>
       </div>
 
       <div className="hero-socials">
-        <a
-          href="https://instagram.com/zulfikarelreal"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          title="Instagram"
-        >
+        <a href="https://instagram.com/zulfikarelreal" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
           <i className="bx bxl-instagram"></i>
         </a>
-        <a
-          href="https://wa.me/6282123477891"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="WhatsApp"
-          title="WhatsApp"
-        >
+        <a href="https://wa.me/6282123477891" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
           <i className="bx bxl-whatsapp"></i>
         </a>
-        <a
-          href="https://linkedin.com/in/muhammad-agung-zulfikar"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          title="LinkedIn"
-        >
+        <a href="https://linkedin.com/in/muhammad-agung-zulfikar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
           <i className="bx bxl-linkedin"></i>
         </a>
-        <a
-          href="http://github.com/zulfikarelreal"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          title="GitHub"
-        >
+        <a href="http://github.com/zulfikarelreal" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
           <i className="bx bxl-github"></i>
         </a>
       </div>
 
-      <button className="scroll-down" onClick={() => scroll("about")}>
+      <button className="scroll-down" onClick={() => scroll('about')}>
         <span>Scroll</span>
         <i className="bx bx-chevron-down"></i>
       </button>
     </section>
-  );
+  )
 }
