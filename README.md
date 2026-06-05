@@ -1,16 +1,54 @@
-# React + Vite
+# Portfolio — Muhammad Agung Zulfikar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite portfolio dengan light/dark mode.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+# Install dependencies
+pnpm install
+# atau
+npm install
 
-## React Compiler
+# Run dev server
+pnpm dev
+# atau
+npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Build production
+pnpm build
+```
 
-## Expanding the ESLint configuration
+## Struktur
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── App.jsx              # Root component + theme state
+├── main.jsx             # Entry point
+├── styles/
+│   └── index.css        # Global styles + CSS variables (light/dark)
+└── components/
+    ├── Cursor.jsx        # Custom cursor
+    ├── Navbar.jsx        # Nav + theme toggle button
+    ├── Hero.jsx          # Landing section
+    ├── About.jsx         # About + stats + cards
+    ├── Skills.jsx        # Pills + animated bars
+    ├── Experience.jsx    # Timeline + sertifikat + CV bar
+    ├── Services.jsx      # Service cards
+    ├── Contact.jsx       # Contact links + WA form
+    ├── Footer.jsx        # Footer
+    ├── ScrollTop.jsx     # Scroll-to-top button
+    └── CertModal.jsx     # Certificate image modal
+```
+
+## Assets
+
+Letakkan file berikut di folder `public/assets/`:
+- `profile.jpg` — foto profil
+- `cert-isms.jpg`, `cert-java-fundamentals.jpg`, `cert-java-programming.jpg`, `cert-bnsp.jpg` — sertifikat
+- `CV - Muhammad Agung Zulfikar.pdf` — CV
+
+## Theme
+
+Light mode adalah default. Toggle dark/light dengan tombol bulan/matahari di navbar.
+CSS variables di `src/styles/index.css` menggunakan `[data-theme]` attribute pada `<html>`.

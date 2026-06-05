@@ -1,0 +1,98 @@
+import { useEffect, useRef, useState } from 'react'
+import './Contact.css'
+
+const links = [
+  { href: 'https://wa.me/6282123477891', icon: '📱', label: 'WhatsApp', val: '082123477891', cls: 'wa' },
+  { href: 'mailto:zulkfikarelreal@gmail.com', icon: '✉️', label: 'Email', val: 'zulkfikarelreal@gmail.com', cls: 'em' },
+  { href: 'https://linkedin.com/in/muhammad-agung-zulfikar', icon: '💼', label: 'LinkedIn', val: 'muhammad-agung-zulfikar', cls: 'li' },
+  { href: 'http://github.com/zulfikarelreal', icon: '🐙', label: 'GitHub', val: 'zulfikarelreal', cls: 'gh' },
+  { href: 'https://instagram.com/zulfikarelreal', icon: '📸', label: 'Instagram', val: '@zulfikarelreal', cls: 'ig' },
+  { href: 'https://www.itemku.com/t/zulfikar-elreal', icon: '🛒', label: 'Itemku Store', val: 'zulfikar-elreal', cls: 'ik' },
+]
+
+export default function Contact() {
+  const sectionRef = useRef(null)
+  const [form, setForm] = useState({ name: '', email: '', msg: '' })
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting)),
+      { threshold: 0.1 }
+    )
+    sectionRef.current?.querySelectorAll('.reveal').forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const text = `Halo Zulfikar!%0A%0ANama: ${encodeURIComponent(form.name)}%0AEmail: ${encodeURIComponent(form.email)}%0A%0APesan:%0A${encodeURIComponent(form.msg)}`
+    window.open(`https://wa.me/6282123477891?text=${text}`, '_blank')
+  }
+
+  return (
+    <section className="section contact" id="contact" ref={sectionRef}>
+      <div className="container">
+        <div className="section-tag reveal">Get In Touch</div>
+        <h2 className="section-title reveal">Let's <span className="accent">Work Together</span></h2>
+        <p className="contact-sub reveal">
+          React out pada kontak dibawah ini jika anda memiliki kebutuhan atau informasi lebih lanjut.
+        </p>
+
+        <div className="contact-grid">
+          <div className="contact-links">
+            {links.map(l => (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card reveal"
+              >
+                <div className={`cc-icon ${l.cls}`}>{l.icon}</div>
+                <div className="cc-info">
+                  <span className="cc-label">{l.label}</span>
+                  <span className="cc-val">{l.val}</span>
+                </div>
+                <span className="cc-arrow">›</span>
+              </a>
+            ))}
+          </div>
+
+          <form className="contact-form reveal" onSubmit={handleSubmit}>
+            <h3>Send a Message</h3>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                placeholder="Email Address"
+                value={form.email}
+                onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <textarea
+                placeholder="Your Message"
+                rows={5}
+                value={form.msg}
+                onChange={e => setForm(f => ({ ...f, msg: e.target.value }))}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary full-btn">
+              Send via WhatsApp 📲
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  )
+}
