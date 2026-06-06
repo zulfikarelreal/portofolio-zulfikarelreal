@@ -49,7 +49,7 @@ export default function Contact() {
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-card reveal"
+                className="contact-card reveal cursor-target"
               >
                 <div className={`cc-icon ${l.cls}`}>
                   <i className={l.icon}></i>

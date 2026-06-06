@@ -13,7 +13,7 @@ const categories = [
   },
   {
     title: 'Tools & Platform',
-    pills: ['Git & GitHub','VS Code','MS Word & Excel','Editing Foto & Video','Adobe Photoshop'],
+    pills: ['Git & GitHub','VS Code','MS Word & Excel', 'TradingView', 'Itemku.com', 'Shopee', 'Tokopedia','Editing Foto & Video','Adobe Photoshop'],
   },
   {
     title: 'Lainnya',
@@ -22,12 +22,13 @@ const categories = [
 ]
 
 const bars = [
+  { label: 'PC Troubleshooting & Maintenance', pct: 90 },
   { label: 'HTML & CSS', pct: 85 },
   { label: 'JavaScript', pct: 65 },
-  { label: 'ReactJS', pct: 30 },
-  { label: 'PC Troubleshooting & Maintenance', pct: 90 },
-  { label: 'Digital Marketing', pct: 80 },
+  { label: 'ReactJS', pct: 60 },
   { label: 'Git & GitHub', pct: 60 },
+  { label: 'Technical Analysis', pct: 75 },
+  { label: 'Digital Marketing', pct: 80 },
 ]
 
 export default function Skills() {

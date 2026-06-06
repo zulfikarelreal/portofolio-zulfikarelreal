@@ -9,7 +9,7 @@ const stats = [
 ]
 
 const cards = [
-  { icon: 'bx bxs-graduation', title: 'Pendidikan', desc: 'S1 Informatika – UNIMUS', sub: '2024 – Sekarang' },
+  { icon: 'bx bxs-graduation', title: 'Pendidikan', href: 'https://unimus.ac.id/', desc: 'S1 Informatika – UNIMUS', sub: '2024 – Sekarang' },
   { icon: 'bx bxs-map', title: 'Lokasi', desc: 'Demak, Jawa Tengah 🇮🇩' },
   { icon: 'bx bxs-store', title: 'E-Commerce', href: 'https://www.itemku.com/t/zulfikar-elreal', desc: 'Itemku Store ↗' },
   { icon: 'bx bxs-envelope', title: 'Email', href: 'mailto:zulkfikarelreal@gmail.com', desc: 'zulkfikarelreal@gmail.com' },
@@ -77,7 +77,7 @@ export default function About() {
 
           <div className="about-cards">
             {cards.map((c) => (
-              <div className="info-card reveal" key={c.title}>
+              <div className="info-card reveal cursor-target" key={c.title}>
                 <span className="card-icon">
                   <i className={c.icon}></i>
                 </span>

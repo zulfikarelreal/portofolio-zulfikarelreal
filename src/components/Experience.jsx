@@ -120,7 +120,7 @@ export default function Experience({ onOpenCert }) {
           <div className="cert-grid">
             {certs.map((c) => (
               <div
-                className="cert-card reveal"
+                className="cert-card reveal cursor-target"
                 key={c.title}
                 onClick={() => onOpenCert({ title: c.title, img: c.img })}
                 role="button"

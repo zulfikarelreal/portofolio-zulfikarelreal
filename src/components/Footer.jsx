@@ -18,12 +18,19 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
-          <button className="nav-logo footer-logo" onClick={() => scroll('home')}>
+          <button
+            className="nav-logo footer-logo cursor-target"
+            onClick={() => scroll("home")}
+          >
             zulfikar<span>.</span>
           </button>
           <div className="footer-links">
-            {navLinks.map(id => (
-              <button key={id} className="footer-link" onClick={() => scroll(id)}>
+            {navLinks.map((id) => (
+              <button
+                key={id}
+                className="footer-link"
+                onClick={() => scroll(id)}
+              >
                 {id.charAt(0).toUpperCase() + id.slice(1)}
               </button>
             ))}
@@ -32,8 +39,14 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>© 2026 Muhammad Agung Zulfikar · Demak, Jawa Tengah 🇮🇩</p>
           <div className="footer-socials">
-            {socials.map(s => (
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" title={s.label}>
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={s.label}
+              >
                 <i className={s.icon}></i>
               </a>
             ))}
@@ -41,5 +54,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

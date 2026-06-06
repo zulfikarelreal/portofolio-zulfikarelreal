@@ -56,6 +56,13 @@
   box-shadow: 0 0 10px 3px rgba(52,211,153, 0.7);
   animation: hpcDotPulse 2.5s ease-in-out infinite 0.5s;
 }
+.hpc-dot-left {
+  background: #34d399;
+  top: 50%; left: 4px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px 3px rgba(52,211,153, 0.7);
+  animation: hpcDotPulse 2.5s ease-in-out infinite 0.5s;
+}
 
 /* ── Corner bracket ornaments ── */
 .hpc-corner {
@@ -117,6 +124,12 @@
   left: -50px; bottom: 70px;
   color: var(--accent);
   animation: hpcFloat 3s ease-in-out infinite 1.5s;
+}
+.hpc-tag-bottom {
+  right: 0px; bottom: 5px;
+  color: var(--accent2);
+  border-color: rgba(var(--accent2-rgb), 0.35);
+  animation: hpcFloat 3s ease-in-out infinite;
 }
 
 /* ── Main card shape ── */

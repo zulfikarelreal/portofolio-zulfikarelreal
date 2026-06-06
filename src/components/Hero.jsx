@@ -80,13 +80,13 @@ export default function Hero() {
         </div>
 
         {/* Profile Card */}
-        <div className="hero-visual">
+        <div className="hero-visual cursor-target">
           <HeroProfileCard imgSrc={profileImgUrl} />
         </div>
       </div>
 
       <div className="hero-socials">
-        <a
+        <a cursor-target
           href="https://instagram.com/zulfikarelreal"
           target="_blank"
           rel="noopener noreferrer"
@@ -99,7 +99,7 @@ export default function Hero() {
           href="https://wa.me/6282123477891"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="WhatsApp"
+          aria-label="WhatsApp cursor-target"
           title="WhatsApp"
         >
           <i className="bx bxl-whatsapp"></i>

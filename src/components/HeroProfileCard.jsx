@@ -22,6 +22,7 @@ export default function HeroProfileCard({ imgSrc }) {
       <span className="hpc-dot hpc-dot-top" />
       <span className="hpc-dot hpc-dot-bottom" />
       <span className="hpc-dot hpc-dot-right" />
+      <span className="hpc-dot hpc-dot-left" />
 
       {/* Corner bracket ornaments */}
       <span className="hpc-corner hpc-corner-tl" />
@@ -32,6 +33,7 @@ export default function HeroProfileCard({ imgSrc }) {
       {/* Floating label tags */}
       <span className="hpc-tag hpc-tag-right">Web Dev</span>
       <span className="hpc-tag hpc-tag-left">IT Tech</span>
+      <span className="hpc-tag hpc-tag-bottom">Stoic</span>
 
       {/* Main card — organic blob shape */}
       <div className="hpc-card">
@@ -57,7 +59,7 @@ export default function HeroProfileCard({ imgSrc }) {
       </div>
 
       {/* Bottom status badge */}
-      <span className="hpc-badge">● Available</span>
+      {/* <span className="hpc-badge">● Available</span> */}
     </div>
   );
 }
