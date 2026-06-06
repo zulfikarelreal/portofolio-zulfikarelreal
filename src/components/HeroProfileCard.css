@@ -115,18 +115,18 @@
   pointer-events: none;
 }
 .hpc-tag-right {
-  right: -58px; top: 32px;
+  right: -50px; top: 32px;
   color: var(--accent2);
   border-color: rgba(var(--accent2-rgb), 0.35);
   animation: hpcFloat 3s ease-in-out infinite;
 }
 .hpc-tag-left {
-  left: -50px; bottom: 70px;
+  left: -50px; bottom: 85px;
   color: var(--accent);
   animation: hpcFloat 3s ease-in-out infinite 1.5s;
 }
 .hpc-tag-bottom {
-  right: 0px; bottom: 5px;
+  right: -20px; bottom: 15px;
   color: var(--accent2);
   border-color: rgba(var(--accent2-rgb), 0.35);
   animation: hpcFloat 3s ease-in-out infinite;
@@ -256,5 +256,23 @@
 /* ── Responsive ── */
 @media (max-width: 480px) {
   .hpc-frame { width: 210px; height: 250px; }
-  .hpc-tag { display: none; }
+
+  /* Tags tetap tampil di mobile tapi di-reposition agar tidak terpotong */
+  .hpc-tag {
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+  .hpc-tag-right {
+    right: -46px;
+    top: 20px;
+  }
+  .hpc-tag-left {
+    left: -40px;
+    bottom: 55px;
+  }
+  .hpc-tag-bottom {
+    right: 0;
+    bottom: 4px;
+  }
 }

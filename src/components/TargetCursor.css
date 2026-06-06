@@ -5,7 +5,8 @@
   width: 0;
   height: 0;
   pointer-events: none;
-  z-index: 99999;
+  /* Lebih tinggi dari modal overlay (99998) agar muncul di atas modal */
+  z-index: 999999;
   transform: translate(-50%, -50%);
 }
 

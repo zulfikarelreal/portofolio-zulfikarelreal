@@ -87,7 +87,10 @@ class AppErrorBoundary extends Component {
 function AppContent() {
   const [theme, setTheme] = useState("light");
   const [certModal, setCertModal] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileScrolled, setMobileScrolled] = useState(false);
   const menuCloseRef = useRef(null);
+  const mobileNavRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -95,6 +98,16 @@ function AppContent() {
 
   const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
 
+  // Scroll listener untuk mobile nav background
+  useEffect(() => {
+    const onScroll = () => {
+      setMobileScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Anchor click handler untuk close menu & smooth scroll
   useEffect(() => {
     const handleAnchorClick = (e) => {
       const target = e.target.closest('a[href^="#"]');
@@ -117,6 +130,15 @@ function AppContent() {
     return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
 
+  // Class string untuk mobile nav header
+  const mobileNavClass = [
+    "mobile-nav-header",
+    mobileScrolled ? "scrolled" : "",
+    mobileMenuOpen ? "menu-open" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <div className="app">
       {/* <Cursor /> */}
@@ -134,7 +156,8 @@ function AppContent() {
 
       {/* Mobile */}
       <div className="mobile-nav">
-        <div className="mobile-nav-header">
+        {/* Header: logo + theme toggle — disembunyikan saat menu open */}
+        <div className={mobileNavClass} ref={mobileNavRef}>
           <button
             className="mobile-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -153,6 +176,7 @@ function AppContent() {
             )}
           </button>
         </div>
+
         <StaggeredMenu
           position="right"
           items={menuItems}
@@ -166,6 +190,8 @@ function AppContent() {
           logoUrl={null}
           accentColor="var(--accent)"
           isFixed={true}
+          onMenuOpen={() => setMobileMenuOpen(true)}
+          onMenuClose={() => setMobileMenuOpen(false)}
           getCloseHandler={(fn) => {
             menuCloseRef.current = fn;
           }}

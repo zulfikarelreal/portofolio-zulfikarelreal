@@ -59,9 +59,7 @@
   --t:         0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
-a {
-  cursor: none !important;
-}
+a { cursor: none !important; }
 
 html {
   scroll-behavior: smooth;
@@ -78,11 +76,7 @@ body {
   transition: background var(--t), color var(--t);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+a { color: inherit; text-decoration: none; }
 img { max-width: 100%; }
 ul  { list-style: none; }
 
@@ -96,32 +90,52 @@ ul  { list-style: none; }
 }
 
 /* ===== NAV VISIBILITY ===== */
-/* Desktop (≥769px): tampilkan horizontal navbar, sembunyikan mobile menu */
 .desktop-nav { display: block; }
 .mobile-nav  { display: none; }
 
-/* Mobile (≤768px): sembunyikan horizontal navbar, tampilkan StaggeredMenu */
 @media (max-width: 768px) {
   .desktop-nav { display: none; }
   .mobile-nav  { display: block; }
 }
 
-/* Paste bagian ini ke dalam src/styles/index.css
-   Ganti blok .mobile-nav-header, .mobile-logo, .mobile-theme-toggle yang sudah ada */
-
+/* ===== MOBILE NAV HEADER =====
+   KRITIS: JANGAN pakai backdrop-filter di elemen ini!
+   backdrop-filter menciptakan stacking context baru yang mengubur
+   StaggeredMenu (position:fixed, z-index:40) di bawahnya — itulah
+   kenapa tombol Menu hilang saat scroll.
+   Solusi: background solid/semi-transparan tanpa backdrop-filter.
+*/
 .mobile-nav-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 14px 5%;
+  height: 56px;
+  padding: 0 5%;
+  /* Ruang kanan untuk tombol Menu StaggeredMenu */
+  padding-right: calc(5% + 90px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1050;
+  /* z-index LEBIH RENDAH dari StaggeredMenu wrapper (z-index: 40 = 1040) */
+  z-index: 990;
   pointer-events: none;
-  /* Beri ruang kanan untuk tombol Menu dari StaggeredMenu (estimasi ~80px) */
-  padding-right: calc(5% + 80px);
+  background: transparent;
+  box-shadow: none;
+  transition: background var(--t), box-shadow var(--t);
+}
+
+.mobile-nav-header.scrolled {
+  /* Solid background — TANPA backdrop-filter agar tidak create stacking context */
+  background: var(--nav-bg);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* Saat menu terbuka: hide logo & toggle saja */
+.mobile-nav-header.menu-open {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, background var(--t), box-shadow var(--t);
 }
 
 .mobile-logo {
@@ -134,32 +148,51 @@ ul  { list-style: none; }
   color: var(--text);
   transition: color var(--t);
   pointer-events: all;
+  line-height: 1;
 }
-
 .mobile-logo span { color: var(--accent); }
 .mobile-logo:hover { color: var(--accent); }
 
+/* Theme toggle — diperkecil agar setara tombol Menu */
 .mobile-theme-toggle {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 1.5px solid var(--border);
-  background: var(--nav-bg);
-  backdrop-filter: blur(20px);
+  background: var(--bg3);
   color: var(--text2);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--t);
-  font-size: 18px;
+  font-size: 16px;
   pointer-events: all;
-  /* Tidak perlu margin tambahan, padding-right di header sudah handle spacing */
+  flex-shrink: 0;
 }
-
 .mobile-theme-toggle:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* ===== SEJAJARKAN tombol Menu StaggeredMenu dengan navbar =====
+   StaggeredMenu header default: padding 2em (terlalu besar).
+   Override supaya tinggi & vertical align sama dengan mobile-nav-header.
+*/
+.mobile-nav .staggered-menu-header {
+  height: 56px !important;
+  padding: 0 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+.mobile-nav .sm-toggle {
+  font-family: var(--font-head) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1 !important;
 }
 
 /* ===== BUTTONS ===== */
@@ -183,7 +216,6 @@ ul  { list-style: none; }
   color: #fff;
   box-shadow: 0 0 24px rgba(var(--accent-rgb),0.35);
 }
-
 .btn-primary:hover {
   filter: brightness(1.1);
   box-shadow: 0 0 40px rgba(var(--accent-rgb),0.45);
@@ -195,17 +227,13 @@ ul  { list-style: none; }
   color: var(--text);
   border: 1.5px solid var(--border);
 }
-
 .btn-ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
 }
 
-.full-btn {
-  width: 100%;
-  justify-content: center;
-}
+.full-btn { width: 100%; justify-content: center; }
 
 /* ===== SECTIONS ===== */
 .section { padding: 100px 0; }
@@ -238,7 +266,6 @@ ul  { list-style: none; }
   transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-
 .reveal.visible {
   opacity: 1;
   transform: none;
@@ -252,7 +279,6 @@ ul  { list-style: none; }
   pointer-events: none;
   z-index: 9999;
 }
-
 .cursor {
   width: 8px;
   height: 8px;
@@ -260,7 +286,6 @@ ul  { list-style: none; }
   transform: translate(-50%,-50%);
   transition: transform 0.1s;
 }
-
 .cursor-follower {
   width: 32px;
   height: 32px;
@@ -270,8 +295,7 @@ ul  { list-style: none; }
 }
 
 @media (hover: none) {
-  .cursor,
-  .cursor-follower { display: none; }
+  .cursor, .cursor-follower { display: none; }
 }
 
 /* ===== SCROLL TOP ===== */
@@ -296,12 +320,10 @@ ul  { list-style: none; }
   z-index: 999;
   box-shadow: 0 4px 20px rgba(var(--accent-rgb),0.4);
 }
-
 .scroll-top.visible {
   opacity: 1;
   pointer-events: all;
 }
-
 .scroll-top:hover { transform: translateY(-3px); }
 
 @media (max-width: 480px) {

@@ -12,7 +12,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 40;
+  z-index: 990;
   overflow: hidden;
 }
 
@@ -27,7 +27,7 @@
   padding: 2em;
   background: transparent;
   pointer-events: none;
-  z-index: 20;
+  z-index: 990;
 }
 
 .staggered-menu-header > * { pointer-events: auto; }
