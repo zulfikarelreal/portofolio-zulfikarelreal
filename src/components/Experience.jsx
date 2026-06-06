@@ -74,26 +74,37 @@ export default function Experience({ onOpenCert }) {
     <section className="section experience" id="experience" ref={sectionRef}>
       <div className="container">
         <div className="section-tag reveal">Perjalanan Saya</div>
-        <h2 className="section-title reveal">Experience & <span className="accent">Education</span></h2>
+        <h2 className="section-title reveal">
+          Experience & <span className="accent">Education</span>
+        </h2>
 
         <div className="timeline">
           {timeline.map((item, i) => (
             <div className="timeline-item reveal" key={i}>
-              <div className="tl-dot"/>
+              <div className="tl-dot" />
               <div className="tl-date">{item.date}</div>
               <div className="tl-card">
                 <span className={`tl-tag ${item.tag}`}>{item.tagLabel}</span>
                 <h3>{item.title}</h3>
                 <p className="tl-company">
-                  {item.companyHref
-                    ? <a href={item.companyHref} target="_blank" rel="noopener noreferrer">{item.company} ↗</a>
-                    : item.company
-                  }
+                  {item.companyHref ? (
+                    <a
+                      href={item.companyHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.company} ↗
+                    </a>
+                  ) : (
+                    item.company
+                  )}
                 </p>
                 {item.desc && <p className="tl-desc">{item.desc}</p>}
                 {item.items && (
                   <ul className="tl-list">
-                    {item.items.map(li => <li key={li}>{li}</li>)}
+                    {item.items.map((li) => (
+                      <li key={li}>{li}</li>
+                    ))}
                   </ul>
                 )}
               </div>
@@ -103,18 +114,25 @@ export default function Experience({ onOpenCert }) {
 
         {/* CERTIFICATES */}
         <div className="cert-section">
-          <h3 className="cert-title reveal">Sertifikat <span className="accent">&amp; Penghargaan</span></h3>
+          <h3 className="cert-title reveal">
+            Sertifikat <span className="accent">&amp; Penghargaan</span>
+          </h3>
           <div className="cert-grid">
-            {certs.map(c => (
+            {certs.map((c) => (
               <div
                 className="cert-card reveal"
                 key={c.title}
                 onClick={() => onOpenCert({ title: c.title, img: c.img })}
                 role="button"
                 tabIndex={0}
-                onKeyDown={e => e.key === 'Enter' && onOpenCert({ title: c.title, img: c.img })}
+                onKeyDown={(e) =>
+                  e.key === "Enter" &&
+                  onOpenCert({ title: c.title, img: c.img })
+                }
               >
-                <span className="cert-icon"><i className={c.icon}></i></span>
+                <span className="cert-icon">
+                  <i className={c.icon}></i>
+                </span>
                 <div>
                   <h4>{c.title}</h4>
                   <p>{c.desc}</p>
@@ -135,21 +153,21 @@ export default function Experience({ onOpenCert }) {
                 href={cvFile}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-ghost"
+                className="btn btn-ghost cursor-target"
               >
-                <i className='bx bx-show'></i> View CV
+                <i className="bx bx-show"></i> View CV
               </a>
               <a
                 href={cvFile}
                 download="CV-Muhammad-Agung-Zulfikar.pdf"
-                className="btn btn-primary"
+                className="btn btn-primary cursor-target"
               >
-                <i className='bx bx-download'></i> Download CV
+                <i className="bx bx-download"></i> Download CV
               </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

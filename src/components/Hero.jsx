@@ -1,19 +1,17 @@
-import BlurText from './BlurText'
-import PixelCard from './PixelCard'
-import './Hero.css'
+import BlurText from "./BlurText";
+import HeroProfileCard from "./HeroProfileCard";
+import "./Hero.css";
 
-// Import langsung — Vite akan handle error jika file tidak ada saat build
-// Gunakan ?url untuk mendapatkan URL string, bukan module
-import profileImgUrl from '../assets/profile.jpg?url'
+import profileImgUrl from "../assets/profile.jpg?url";
 
 export default function Hero() {
   const scroll = (id) => {
-    const el = document.getElementById(id)
+    const el = document.getElementById(id);
     if (el) {
-      const top = el.getBoundingClientRect().top + window.pageYOffset - 75
-      window.scrollTo({ top, behavior: 'smooth' })
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 75;
+      window.scrollTo({ top, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section className="hero" id="home">
@@ -63,8 +61,8 @@ export default function Hero() {
 
           <div className="hero-actions">
             <button
-              className="btn btn-primary"
-              onClick={() => scroll('contact')}
+              className="btn btn-primary cursor-target"
+              onClick={() => scroll("contact")}
             >
               <i className="bx bx-envelope"></i>
               Hire Me
@@ -73,7 +71,7 @@ export default function Hero() {
               href="https://wa.me/6282123477891"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-ghost"
+              className="btn btn-ghost cursor-target"
             >
               <i className="bx bxl-whatsapp"></i>
               Chat Now
@@ -83,43 +81,53 @@ export default function Hero() {
 
         {/* Profile Card */}
         <div className="hero-visual">
-          <PixelCard variant="blue" className="pixel-card-hero">
-            <img
-              src={profileImgUrl}
-              alt="Muhammad Agung Zulfikar"
-              className="pixel-profile-img"
-              onError={e => {
-                e.target.style.display = 'none'
-                const placeholder = e.target.nextElementSibling
-                if (placeholder) placeholder.style.display = 'flex'
-              }}
-            />
-            <div className="profile-placeholder" style={{ display: 'none' }}>
-              Z
-            </div>
-          </PixelCard>
+          <HeroProfileCard imgSrc={profileImgUrl} />
         </div>
       </div>
 
       <div className="hero-socials">
-        <a href="https://instagram.com/zulfikarelreal" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+        <a
+          href="https://instagram.com/zulfikarelreal"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          title="Instagram"
+        >
           <i className="bx bxl-instagram"></i>
         </a>
-        <a href="https://wa.me/6282123477891" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+        <a
+          href="https://wa.me/6282123477891"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          title="WhatsApp"
+        >
           <i className="bx bxl-whatsapp"></i>
         </a>
-        <a href="https://linkedin.com/in/muhammad-agung-zulfikar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+        <a
+          href="https://linkedin.com/in/muhammad-agung-zulfikar"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
           <i className="bx bxl-linkedin"></i>
         </a>
-        <a href="http://github.com/zulfikarelreal" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+        <a
+          href="http://github.com/zulfikarelreal"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          title="GitHub"
+        >
           <i className="bx bxl-github"></i>
         </a>
       </div>
 
-      <button className="scroll-down" onClick={() => scroll('about')}>
+      <button className="scroll-down" onClick={() => scroll("about")}>
         <span>Scroll</span>
         <i className="bx bx-chevron-down"></i>
       </button>
     </section>
-  )
+  );
 }

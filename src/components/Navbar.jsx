@@ -31,16 +31,19 @@ export default function Navbar({ theme, toggleTheme }) {
   }
 
   return (
-    <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
-      <button className="nav-logo" onClick={() => handleClick('home')}>
+    <nav className={`nav${scrolled ? " scrolled" : ""}`}>
+      <button
+        className="nav-logo cursor-target"
+        onClick={() => handleClick("home")}
+      >
         zulfikar<span>.</span>
       </button>
 
       <ul className="nav-links">
-        {links.map(id => (
+        {links.map((id) => (
           <li key={id}>
             <button
-              className={`nav-link${active === id ? ' active' : ''}`}
+              className={`nav-link${active === id ? " active" : ""}`}
               onClick={() => handleClick(id)}
             >
               {id.charAt(0).toUpperCase() + id.slice(1)}
@@ -50,16 +53,19 @@ export default function Navbar({ theme, toggleTheme }) {
       </ul>
 
       <button
-        className="theme-toggle"
+        className="theme-toggle cursor-target"
         onClick={toggleTheme}
         aria-label="Toggle theme"
-        title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-      >
-        {theme === 'light'
-          ? <i className='bx bx-moon'></i>
-          : <i className='bx bx-sun'></i>
+        title={
+          theme === "light" ? "Switch to dark mode" : "Switch to light mode"
         }
+      >
+        {theme === "light" ? (
+          <i className="bx bx-moon"></i>
+        ) : (
+          <i className="bx bx-sun"></i>
+        )}
       </button>
     </nav>
-  )
+  );
 }

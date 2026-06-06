@@ -35,20 +35,23 @@ export default function About() {
         <div className="about-grid">
           <div className="about-text">
             <h2 className="section-title reveal">
-              Teknisi Computer <span className="accent">yang suka banyak hal</span>
+              Teknisi Computer{" "}
+              <span className="accent">yang suka banyak hal</span>
             </h2>
             <p className="reveal">
-              Saya adalah mahasiswa S1 Informatika (Kelas Sore) di Universitas Muhammadiyah
-              Semarang semester 4 dengan IPK 3,88/4,00. Fokus saya di web development —
-              terutama HTML, CSS, JavaScript dan sedang mempelajari framework ReactJS.
+              Saya adalah mahasiswa S1 Informatika (Kelas Sore) di Universitas
+              Muhammadiyah Semarang semester 4 dengan IPK 3,88/4,00. Fokus saya
+              di web development — terutama HTML, CSS, JavaScript dan sedang
+              mempelajari framework ReactJS.
             </p>
             <p className="reveal">
-              Saya juga punya pengalaman lebih dari 3 tahun sebagai teknisi komputer
-              (perakitan, instalasi OS, troubleshooting) dan 6+ tahun di digital marketing
-              sejak SMP. Terbiasa kerja mandiri maupun dalam tim.
+              Saya juga punya pengalaman lebih dari 3 tahun sebagai teknisi
+              komputer (perakitan, instalasi OS, troubleshooting) dan 6+ tahun
+              di digital marketing sejak SMP. Terbiasa kerja mandiri maupun
+              dalam tim.
             </p>
             <div className="about-stats reveal">
-              {stats.map(s => (
+              {stats.map((s) => (
                 <div className="stat" key={s.label}>
                   <span className="stat-num">{s.num}</span>
                   <span className="stat-label">{s.label}</span>
@@ -56,27 +59,48 @@ export default function About() {
               ))}
             </div>
             <button
-              className="btn btn-primary reveal"
+              className="btn btn-primary reveal cursor-target"
               onClick={() => {
-                const el = document.getElementById('contact')
-                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 75, behavior: 'smooth' })
+                const el = document.getElementById("contact");
+                if (el)
+                  window.scrollTo({
+                    top:
+                      el.getBoundingClientRect().top + window.pageYOffset - 75,
+                    behavior: "smooth",
+                  });
               }}
             >
-              <i className='bx bx-link-external'></i>
+              <i className="bx bx-link-external"></i>
               Let's Connect
             </button>
           </div>
 
           <div className="about-cards">
-            {cards.map(c => (
+            {cards.map((c) => (
               <div className="info-card reveal" key={c.title}>
-                <span className="card-icon"><i className={c.icon}></i></span>
+                <span className="card-icon">
+                  <i className={c.icon}></i>
+                </span>
                 <div>
                   <h4>{c.title}</h4>
-                  {c.href
-                    ? <p><a href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">{c.desc}</a></p>
-                    : <><p>{c.desc}</p>{c.sub && <small>{c.sub}</small>}</>
-                  }
+                  {c.href ? (
+                    <p>
+                      <a
+                        href={c.href}
+                        target={
+                          c.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel="noopener noreferrer"
+                      >
+                        {c.desc}
+                      </a>
+                    </p>
+                  ) : (
+                    <>
+                      <p>{c.desc}</p>
+                      {c.sub && <small>{c.sub}</small>}
+                    </>
+                  )}
                 </div>
               </div>
             ))}
@@ -84,5 +108,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }

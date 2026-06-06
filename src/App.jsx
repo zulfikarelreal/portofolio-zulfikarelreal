@@ -11,7 +11,8 @@ import LanyardSection from "./components/LanyardSection";
 import Footer from "./components/Footer";
 import ScrollTop from "./components/ScrollTop";
 import CertModal from "./components/CertModal";
-import Cursor from "./components/Cursor";
+// import Cursor from "./components/Cursor";
+import TargetCursor from "./components/TargetCursor";
 import "./styles/index.css";
 
 const menuItems = [
@@ -118,7 +119,13 @@ function AppContent() {
 
   return (
     <div className="app">
-      <Cursor />
+      {/* <Cursor /> */}
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+      />
 
       {/* Desktop */}
       <div className="desktop-nav">

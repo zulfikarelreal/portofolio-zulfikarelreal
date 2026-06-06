@@ -33,14 +33,17 @@ export default function Contact() {
     <section className="section contact" id="contact" ref={sectionRef}>
       <div className="container">
         <div className="section-tag reveal">Get In Touch</div>
-        <h2 className="section-title reveal">Let's <span className="accent">Work Together</span></h2>
+        <h2 className="section-title reveal">
+          Let's <span className="accent">Work Together</span>
+        </h2>
         <p className="contact-sub reveal">
-          Reach out pada kontak dibawah ini jika anda memiliki kebutuhan atau informasi lebih lanjut.
+          Reach out pada kontak dibawah ini jika anda memiliki kebutuhan atau
+          informasi lebih lanjut.
         </p>
 
         <div className="contact-grid">
           <div className="contact-links">
-            {links.map(l => (
+            {links.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
@@ -48,12 +51,14 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="contact-card reveal"
               >
-                <div className={`cc-icon ${l.cls}`}><i className={l.icon}></i></div>
+                <div className={`cc-icon ${l.cls}`}>
+                  <i className={l.icon}></i>
+                </div>
                 <div className="cc-info">
                   <span className="cc-label">{l.label}</span>
                   <span className="cc-val">{l.val}</span>
                 </div>
-                <i className='bx bx-chevron-right cc-arrow'></i>
+                <i className="bx bx-chevron-right cc-arrow"></i>
               </a>
             ))}
           </div>
@@ -65,7 +70,9 @@ export default function Contact() {
                 type="text"
                 placeholder="Your Name"
                 value={form.name}
-                onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, name: e.target.value }))
+                }
                 required
               />
             </div>
@@ -74,7 +81,9 @@ export default function Contact() {
                 type="email"
                 placeholder="Email Address"
                 value={form.email}
-                onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, email: e.target.value }))
+                }
                 required
               />
             </div>
@@ -83,17 +92,22 @@ export default function Contact() {
                 placeholder="Your Message"
                 rows={5}
                 value={form.msg}
-                onChange={e => setForm(f => ({ ...f, msg: e.target.value }))}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, msg: e.target.value }))
+                }
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary full-btn">
-              <i className='bx bxl-whatsapp'></i>
+            <button
+              type="submit"
+              className="btn btn-primary full-btn cursor-target"
+            >
+              <i className="bx bxl-whatsapp"></i>
               Send via WhatsApp
             </button>
           </form>
         </div>
       </div>
     </section>
-  )
+  );
 }
