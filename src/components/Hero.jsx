@@ -1,16 +1,10 @@
-import { Component } from 'react'
 import BlurText from './BlurText'
 import PixelCard from './PixelCard'
 import './Hero.css'
 
-// Gambar diimport secara kondisional agar tidak crash jika file tidak ada
-let profileImg = null
-try {
-  // Vite static import — jika file ada, ini akan bekerja saat build
-  profileImg = new URL('../assets/profile.jpg', import.meta.url).href
-} catch {
-  profileImg = null
-}
+// Import langsung — Vite akan handle error jika file tidak ada saat build
+// Gunakan ?url untuk mendapatkan URL string, bukan module
+import profileImgUrl from '../assets/profile.jpg?url'
 
 export default function Hero() {
   const scroll = (id) => {
@@ -87,25 +81,20 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Profile Card — selalu tampil, pakai foto jika ada */}
+        {/* Profile Card */}
         <div className="hero-visual">
           <PixelCard variant="blue" className="pixel-card-hero">
-            {profileImg ? (
-              <img
-                src={profileImg}
-                alt="Muhammad Agung Zulfikar"
-                className="pixel-profile-img"
-                onError={e => {
-                  e.target.style.display = 'none'
-                  const placeholder = e.target.nextElementSibling
-                  if (placeholder) placeholder.style.display = 'flex'
-                }}
-              />
-            ) : null}
-            <div
-              className="profile-placeholder"
-              style={{ display: profileImg ? 'none' : 'flex' }}
-            >
+            <img
+              src={profileImgUrl}
+              alt="Muhammad Agung Zulfikar"
+              className="pixel-profile-img"
+              onError={e => {
+                e.target.style.display = 'none'
+                const placeholder = e.target.nextElementSibling
+                if (placeholder) placeholder.style.display = 'flex'
+              }}
+            />
+            <div className="profile-placeholder" style={{ display: 'none' }}>
               Z
             </div>
           </PixelCard>

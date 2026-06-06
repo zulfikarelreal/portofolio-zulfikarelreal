@@ -102,7 +102,9 @@ ul  { list-style: none; }
   .mobile-nav  { display: block; }
 }
 
-/* ===== MOBILE NAV HEADER ===== */
+/* Paste bagian ini ke dalam src/styles/index.css
+   Ganti blok .mobile-nav-header, .mobile-logo, .mobile-theme-toggle yang sudah ada */
+
 .mobile-nav-header {
   position: fixed;
   top: 0;
@@ -114,6 +116,8 @@ ul  { list-style: none; }
   justify-content: space-between;
   z-index: 1050;
   pointer-events: none;
+  /* Beri ruang kanan untuk tombol Menu dari StaggeredMenu (estimasi ~80px) */
+  padding-right: calc(5% + 80px);
 }
 
 .mobile-logo {
@@ -146,6 +150,7 @@ ul  { list-style: none; }
   transition: var(--t);
   font-size: 18px;
   pointer-events: all;
+  /* Tidak perlu margin tambahan, padding-right di header sudah handle spacing */
 }
 
 .mobile-theme-toggle:hover {
