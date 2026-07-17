@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import './Contact.css'
 
+const FORM_ENDPOINT = 'https://formspree.io/f/xeeyagkk'
+
 const links = [
   { href: 'https://wa.me/6282123477891', icon: 'bx bxl-whatsapp', label: 'WhatsApp', val: '082123477891', cls: 'wa' },
   { href: 'mailto:zulkfikarelreal@gmail.com', icon: 'bx bx-envelope', label: 'Email', val: 'zulkfikarelreal@gmail.com', cls: 'em' },
@@ -12,7 +14,8 @@ const links = [
 
 export default function Contact() {
   const sectionRef = useRef(null)
-  const [form, setForm] = useState({ name: '', email: '', msg: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', msg: '' })
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -23,12 +26,31 @@ export default function Contact() {
     return () => obs.disconnect()
   }, [])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const subject = `Pesan dari Portfolio — ${form.name}`;
-    const body = `Nama: ${form.name}\nEmail: ${form.email}\n\nPesan:\n${form.msg}`;
-    window.location.href = `mailto:zulkfikarelreal@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          subject: form.subject,
+          message: form.msg,
+        }),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', phone: '', subject: '', msg: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <section className="section contact" id="contact" ref={sectionRef}>
@@ -71,20 +93,34 @@ export default function Contact() {
                 type="text"
                 placeholder="Your Name"
                 value={form.name}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, name: e.target.value }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                 required
               />
             </div>
             <div className="form-group">
               <input
                 type="email"
-                placeholder="Email Address"
+                placeholder="Your Email Address"
                 value={form.email}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, email: e.target.value }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="tel"
+                placeholder="Your Phone Number"
+                value={form.phone}
+                onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Subject"
+                value={form.subject}
+                onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
                 required
               />
             </div>
@@ -93,22 +129,32 @@ export default function Contact() {
                 placeholder="Your Message"
                 rows={5}
                 value={form.msg}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, msg: e.target.value }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, msg: e.target.value }))}
                 required
               />
             </div>
             <button
               type="submit"
               className="btn btn-primary full-btn cursor-target"
+              disabled={status === 'sending'}
             >
               <i className="bx bx-envelope"></i>
-              Send via Email
+              {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
+
+            {status === 'success' && (
+              <p style={{ color: '#22c55e', fontSize: 13, marginTop: 12 }}>
+                Pesan berhasil terkirim! Terima kasih sudah menghubungi.
+              </p>
+            )}
+            {status === 'error' && (
+              <p style={{ color: '#ef4444', fontSize: 13, marginTop: 12 }}>
+                Gagal mengirim pesan. Coba lagi atau hubungi langsung via WhatsApp.
+              </p>
+            )}
           </form>
         </div>
       </div>
     </section>
-  );
+  )
 }

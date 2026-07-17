@@ -8,7 +8,7 @@ import './Experience.css'
 
 const timeline = [
   {
-    date: "Feb 2026 – Sekarang",
+    date: "Juni 2026 – Sekarang",
     tag: "work",
     tagLabel: "Pengalaman Kerja",
     title: "Customer Engineer — BROTHER",

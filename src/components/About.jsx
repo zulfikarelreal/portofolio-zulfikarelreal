@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import './About.css'
 
 const stats = [
-  { num: '3+', label: 'Tahun Jadi Teknisi' },
+  { num: '4+', label: 'Tahun Jadi Teknisi' },
   { num: '6+', label: 'Tahun Digital Marketing' }, 
   { num: '7+', label: 'Tahun Pengalaman Kerja' },
   { num: '3.88', label: 'IPK Saat Ini' },
