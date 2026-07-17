@@ -24,10 +24,11 @@ export default function Contact() {
   }, [])
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const text = `Halo Zulfikar!%0A%0ANama: ${encodeURIComponent(form.name)}%0AEmail: ${encodeURIComponent(form.email)}%0A%0APesan:%0A${encodeURIComponent(form.msg)}`
-    window.open(`https://wa.me/6282123477891?text=${text}`, '_blank')
-  }
+    e.preventDefault();
+    const subject = `Pesan dari Portfolio — ${form.name}`;
+    const body = `Nama: ${form.name}\nEmail: ${form.email}\n\nPesan:\n${form.msg}`;
+    window.location.href = `mailto:zulkfikarelreal@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   return (
     <section className="section contact" id="contact" ref={sectionRef}>
@@ -102,8 +103,8 @@ export default function Contact() {
               type="submit"
               className="btn btn-primary full-btn cursor-target"
             >
-              <i className="bx bxl-whatsapp"></i>
-              Send via WhatsApp
+              <i className="bx bx-envelope"></i>
+              Send via Email
             </button>
           </form>
         </div>

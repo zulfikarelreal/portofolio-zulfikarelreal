@@ -86,7 +86,8 @@ export default function Hero() {
       </div>
 
       <div className="hero-socials">
-        <a cursor-target
+        <a
+          cursor-target
           href="https://instagram.com/zulfikarelreal"
           target="_blank"
           rel="noopener noreferrer"

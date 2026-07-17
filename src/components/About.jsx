@@ -45,7 +45,7 @@ export default function About() {
               mempelajari framework ReactJS.
             </p>
             <p className="reveal">
-              Saya juga punya pengalaman lebih dari 3 tahun sebagai teknisi
+              Saya juga punya pengalaman lebih dari 4 tahun sebagai teknisi
               komputer (perakitan, instalasi OS, troubleshooting) dan 6+ tahun
               di digital marketing sejak SMP. Terbiasa kerja mandiri maupun
               dalam tim.

@@ -12,6 +12,7 @@ const categories = [
       "Instalasi OS (Windows, Linux & Other)",
       "Rakit PC / Laptop",
       "Network Config",
+      "Repair Printer BROTHER"
     ],
     active: true,
   },
@@ -45,13 +46,14 @@ const categories = [
 ];
 
 const bars = [
-  { label: "PC Troubleshooting & Maintenance", pct: 90 },
-  { label: "HTML & CSS", pct: 85 },
-  { label: "JavaScript", pct: 65 },
-  { label: "ReactJS", pct: 60 },
-  { label: "Git & GitHub", pct: 60 },
-  { label: "Technical Analysis", pct: 75 },
-  { label: "Digital Marketing", pct: 80 },
+  { label: "PC Troubleshooting & Maintenance", level: "Expert" },
+  { label: "HTML & CSS", level: "Advanced" },
+  { label: "Brother Printer & Device Support", level: "Advanced" },
+  { label: "JavaScript", level: "Intermediate" },
+  { label: "ReactJS", level: "Intermediate" },
+  { label: "Git & GitHub", level: "Intermediate" },
+  { label: "Stocks Technical Analysis", level: "Advanced" },
+  { label: "Digital Marketing", level: "Advanced" },
 ];
 
 export default function Skills() {
@@ -91,15 +93,15 @@ export default function Skills() {
             cat.active ? (
               <div className="skill-category core-card" key={cat.title}>
                 {/* <div className="core-inner"> */}
-                  {/* <div className="core-badge">CORE</div> */}
-                  <h3>{cat.title}</h3>
-                  <div className="skill-pills">
-                    {cat.pills.map((p) => (
-                      <span key={p} className="pill active-pill">
-                        {p}
-                      </span>
-                    ))}
-                  </div>
+                {/* <div className="core-badge">CORE</div> */}
+                <h3>{cat.title}</h3>
+                <div className="skill-pills">
+                  {cat.pills.map((p) => (
+                    <span key={p} className="pill active-pill">
+                      {p}
+                    </span>
+                  ))}
+                </div>
                 {/* </div> */}
               </div>
             ) : (
@@ -122,13 +124,9 @@ export default function Skills() {
             <div className="skill-bar-item" key={b.label}>
               <div className="sb-label">
                 <span>{b.label}</span>
-                <span>{b.pct}%</span>
-              </div>
-              <div className="sb-track">
-                <div
-                  className="sb-fill"
-                  style={{ width: animated ? `${b.pct}%` : "0%" }}
-                />
+                <span className={`level-badge level-${b.level.toLowerCase()}`}>
+                  {b.level}
+                </span>
               </div>
             </div>
           ))}

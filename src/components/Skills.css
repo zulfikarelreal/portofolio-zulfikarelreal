@@ -125,18 +125,47 @@
   font-weight: 700;
 }
 
-.sb-track {
-  height: 7px;
-  background: var(--bg3);
-  border-radius: 100px;
-  overflow: hidden;
+.sb-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0;
 }
 
-.sb-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
+.level-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
   border-radius: 100px;
-  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.level-beginner {
+  background: rgba(148,163,184,0.12);
+  color: #64748b;
+  border: 1px solid rgba(148,163,184,0.3);
+}
+
+.level-intermediate {
+  background: rgba(var(--accent-rgb),0.1);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb),0.3);
+}
+
+.level-advanced {
+  background: rgba(var(--accent2-rgb),0.1);
+  color: var(--accent2);
+  border: 1px solid rgba(var(--accent2-rgb),0.3);
+}
+
+.level-expert {
+  background: rgba(245,158,11,0.12);
+  color: #d97706;
+  border: 1px solid rgba(245,158,11,0.3);
 }
 
 @media (max-width: 768px) {
