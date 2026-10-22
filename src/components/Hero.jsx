@@ -3,6 +3,36 @@ import HeroProfileCard from "./HeroProfileCard";
 import "./Hero.css";
 
 import profileImgUrl from "../assets/profile.jpg?url";
+import cvFile from "../assets/CV - Muhammad Agung Zulfikar.pdf";
+
+const socials = [
+  {
+    href: "https://instagram.com/zulfikarelreal",
+    label: "Instagram",
+    icon: "bx bxl-instagram",
+  },
+  {
+    href: "https://wa.me/6282123477891",
+    label: "WhatsApp",
+    icon: "bx bxl-whatsapp",
+  },
+  {
+    href: "https://linkedin.com/in/muhammad-agung-zulfikar",
+    label: "LinkedIn",
+    icon: "bx bxl-linkedin",
+  },
+  {
+    href: "http://github.com/zulfikarelreal",
+    label: "GitHub",
+    icon: "bx bxl-github",
+  },
+  {
+    href: "mailto:zulkfikarelreal@gmail.com",
+    label: "Email",
+    icon: "bx bx-envelope",
+    internal: true,
+  },
+];
 
 export default function Hero() {
   const scroll = (id) => {
@@ -23,10 +53,10 @@ export default function Hero() {
 
       <div className="hero-inner">
         <div className="hero-content">
-          <div className="hero-badge">
+          {/* <div className="hero-badge">
             <span className="badge-dot" />
             Available for Work
-          </div>
+          </div> */}
 
           <h1 className="hero-title">
             <span className="line-reveal hi">Hi, I'm</span>
@@ -49,7 +79,9 @@ export default function Hero() {
           </h1>
 
           <p className="hero-role">
-            <span className="role-accent">Computer Technician</span>
+            <span className="role-accent">Customer Service Engineer</span>
+            <span className="role-sep">|</span>
+            <span className="role-accent">IT Technician</span>
             <span className="role-sep">|</span>
             Informatics Student
           </p>
@@ -60,69 +92,38 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <button
-              className="btn btn-primary cursor-target"
-              onClick={() => scroll("contact")}
-            >
-              <i className="bx bx-envelope"></i>
-              Hire Me
-            </button>
             <a
-              href="https://wa.me/6282123477891"
+              href={cvFile}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-ghost cursor-target"
+              className="btn btn-primary cursor-target"
             >
-              <i className="bx bxl-whatsapp"></i>
-              Chat Now
+              <i className="bx bx-file"></i>
+              My Curriculum Vitae
             </a>
           </div>
         </div>
 
-        {/* Profile Card */}
         <div className="hero-visual cursor-target">
           <HeroProfileCard imgSrc={profileImgUrl} />
         </div>
       </div>
 
       <div className="hero-socials">
-        <a
-          cursor-target
-          href="https://instagram.com/zulfikarelreal"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          title="Instagram"
-        >
-          <i className="bx bxl-instagram"></i>
-        </a>
-        <a
-          href="https://wa.me/6282123477891"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="WhatsApp cursor-target"
-          title="WhatsApp"
-        >
-          <i className="bx bxl-whatsapp"></i>
-        </a>
-        <a
-          href="https://linkedin.com/in/muhammad-agung-zulfikar"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          title="LinkedIn"
-        >
-          <i className="bx bxl-linkedin"></i>
-        </a>
-        <a
-          href="http://github.com/zulfikarelreal"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          title="GitHub"
-        >
-          <i className="bx bxl-github"></i>
-        </a>
+        {socials.map((s) => (
+          <a
+            key={s.label}
+            href={s.href}
+            className="cursor-target"
+            {...(s.internal
+              ? {}
+              : { target: "_blank", rel: "noopener noreferrer" })}
+            aria-label={s.label}
+            title={s.label}
+          >
+            <i className={s.icon}></i>
+          </a>
+        ))}
       </div>
 
       <button className="scroll-down" onClick={() => scroll("about")}>

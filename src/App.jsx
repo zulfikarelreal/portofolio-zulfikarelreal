@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, Component } from "react";
 import { StaggeredMenu } from "./components/StaggeredMenu";
+// import "./styles/theme.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";

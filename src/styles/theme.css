@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap');
+
+/* theme.css — dimuat SETELAH index.css (lihat App.jsx). Menimpa token & gaya lama. */
+
+:root, [data-theme="light"] {
+  --bg:#ECEFEC; --bg2:#ECEFEC; --bg3:#DFE4E0; --card:transparent;
+  --border:rgba(27,36,31,.18); --rule:rgba(27,36,31,.18);
+  --text:#1B241F; --text2:#4A564F;
+  --accent:#0E6B63; --accent-rgb:14,107,99;
+  --accent2:#8A5A00; --accent2-rgb:138,90,0;
+  --shadow:none; --shadow-lg:none; --nav-bg:rgba(236,239,236,.96);
+}
+[data-theme="dark"] {
+  --bg:#111613; --bg2:#111613; --bg3:#1A211D; --card:transparent;
+  --border:rgba(230,234,231,.16); --rule:rgba(230,234,231,.16);
+  --text:#E6EAE7; --text2:#9AA6A0;
+  --accent:#4FC3B6; --accent-rgb:79,195,182;
+  --accent2:#E0A83A; --accent2-rgb:224,168,58;
+  --shadow:none; --shadow-lg:none; --nav-bg:rgba(17,22,19,.96);
+}
+:root {
+  --font-head:'Familjen Grotesk',sans-serif; --font-body:'Public Sans',sans-serif;
+  --radius:6px; --radius-sm:4px; --t:.2s ease;
+}
+
+body { line-height:1.65; }
+.container { max-width:1040px; }
+
+/* Hapus dekorasi: blob, grid, efek orbit, kursor lama */
+.blob,.grid-lines,.scroll-down,.hpc-ring,.hpc-dot,.hpc-corner,.hpc-tag { display:none !important; }
+.badge-dot { animation:none; box-shadow:none; background:#2E9E5B; }
+
+/* Satu gerakan saja: animasi masuk hero. Sisanya statis. */
+.reveal { opacity:1; transform:none; transition:none; }
+.service-card:hover,.info-card:hover,.skill-category:hover,.cert-card:hover,
+.contact-card:hover,.btn:hover { transform:none; }
+.service-card::before { display:none; }
+
+/* Section: pemisah garis, bukan selang-seling warna */
+.section { padding:88px 0; border-top:1px solid var(--rule); }
+.about,.experience,.lanyard-section,.footer { background:transparent; }
+.section-tag { display:none; }
+.section-title {
+  font-weight:700; font-size:clamp(28px,4.2vw,42px); line-height:1.12;
+  letter-spacing:-.02em; margin-bottom:36px; max-width:20ch;
+}
+.accent,.accent2 { color:inherit; }
+
+/* Hero: nama besar, satu warna */
+.hero { padding:120px 0 72px; }
+.hero-badge { background:none; border:none; padding:0; color:var(--text2); font-size:14px; }
+.hi { font-size:clamp(18px,2.4vw,24px); }
+.blur-name-sub,.blur-name-sub span,
+.blur-name-accent,.blur-name-accent span {
+  color:var(--text) !important; font-weight:700 !important;
+  font-size:clamp(48px,9vw,104px) !important; line-height:.98 !important; letter-spacing:-.035em;
+}
+.hero-role { font-size:17px; margin:22px 0 14px; }
+.hero-role .role-accent { color:var(--text); font-weight:600; }
+.role-sep { color:var(--text2); }
+.hero-desc { text-align:left; font-size:15px; }
+.hpc-card { border-radius:6px; box-shadow:none; border:1px solid var(--rule); }
+.hpc-frame:hover .hpc-card { box-shadow:none; border-color:var(--accent); }
+
+/* Tombol */
+.btn { border-radius:4px; font-weight:600; padding:11px 22px; }
+.btn-primary { background:var(--accent); color:#fff; box-shadow:none; }
+.btn-primary:hover { filter:none; box-shadow:none; background:color-mix(in srgb,var(--accent) 85%,#000); }
+[data-theme="dark"] .btn-primary { color:#0C1210; }
+.btn-ghost { border-color:var(--text); }
+.btn-ghost:hover { background:var(--text); color:var(--bg); border-color:var(--text); }
+
+/* Kartu jadi datar: garis saja, tanpa bayangan, radius kecil */
+.service-card,.info-card,.skill-category,.cert-card,.contact-card,.contact-form,.cv-bar,.tl-card {
+  background:transparent; box-shadow:none; border:1px solid var(--rule); border-radius:6px;
+}
+.service-card.featured { border-color:var(--accent); background:transparent; }
+.service-icon,.card-icon,.cert-icon,.cc-icon {
+  background:none; border:1px solid var(--rule); border-radius:4px; color:var(--text);
+}
+.service-tag,.cert-badge { border-radius:3px; text-transform:none; letter-spacing:0; font-size:12px; border-color:var(--rule); color:var(--text2); background:none; }
+.stat-num { font-weight:700; letter-spacing:-.02em; color:var(--text); }
+.stat-label { font-size:13px; }
+
+/* Skills */
+.skill-category h3 { text-transform:none; letter-spacing:0; font-size:15px; color:var(--text); }
+.skill-category.core-card { animation:none; border:1px solid var(--rule); border-left:4px solid var(--accent); }
+.pill { border-radius:3px; border-color:var(--rule); }
+.active-pill { background:none; color:var(--text); border-color:var(--accent); }
+.skill-bars { gap:0; border-top:1px solid var(--rule); }
+.skill-bar-item { padding:12px 0; border-bottom:1px solid var(--rule); }
+.level-badge { text-transform:none; letter-spacing:0; font-size:13px; font-weight:600; background:none !important; border:none !important; padding:0; color:var(--text2) !important; }
+.level-expert,.level-advanced { color:var(--accent) !important; }
+
+/* Timeline */
+.timeline::before { width:1px; background:var(--rule); }
+.tl-dot { width:9px; height:9px; border-radius:0; background:var(--accent); border:none; box-shadow:none; left:-26px; }
+.tl-date { color:var(--text2); font-size:13px; letter-spacing:0; }
+.tl-tag { text-transform:none; letter-spacing:0; padding:0; border:none !important; background:none !important; font-size:13px; color:var(--text2) !important; border-radius:0; }
+.tl-card h3,.cv-bar-info h4,.cert-title { font-weight:700; letter-spacing:-.01em; }
+
+/* Footer, scroll-top */
+.scroll-top { border-radius:4px; box-shadow:none; }
+
+@media (prefers-reduced-motion:reduce) { * { animation:none !important; transition:none !important; } }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }

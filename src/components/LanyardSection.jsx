@@ -35,7 +35,7 @@ export default function LanyardSection() {
   return (
     <section className="section lanyard-section" id="lanyard">
       <div className="container">
-        <div className="section-tag">Interactive</div>
+        {/* <div className="section-tag">Interactive</div> */}
         <h2 className="section-title">
           Drag the <span className="accent">Card</span>
         </h2>

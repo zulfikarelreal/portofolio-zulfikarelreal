@@ -5,28 +5,28 @@ const services = [
   {
     icon: 'bx bx-wrench',
     title: 'Servis & Rakit PC',
-    desc: 'Perakitan PC custom, instalasi OS, troubleshooting hardware/software, dan maintenance rutin laptop/PC.',
+    desc: 'Perakitan PC custom, instalasi OS, troubleshooting hardware/software, reparasi printer brother dan maintenance rutin laptop/PC.',
     tag: 'IT Technician',
     featured: true,
   },
   {
     icon: 'bx bx-code-alt',
-    title: 'Web Development',
-    desc: 'Membuat website dari nol dengan HTML, CSS, dan JavaScript yang clean, fast, dan responsif di semua device.',
-    tag: 'HTML · CSS · JS',
+    title: 'Build Website',
+    desc: 'Membangun website modern dengan ReactJS/NextJS, HTML5, CSS3, dan JavaScript. Bisa juga menambahkan fitur interaktif dan responsif',
+    tag: 'Web Development',
   },
-  {
-    icon: 'bx bx-mobile-alt',
-    title: 'Responsive Design',
-    desc: 'Memastikan tampilan website kamu perfect di HP, tablet, maupun desktop. No more broken layouts.',
-    tag: 'UI/UX',
-  },
-  {
-    icon: 'bx bx-trending-up',
-    title: 'Digital Marketing',
-    desc: 'Bantu bisnis kamu grow secara online — dari konten sosmed, iklan, sampai manajemen toko e-commerce.',
-    tag: 'Marketing',
-  },
+  // {
+  //   icon: 'bx bx-mobile-alt',
+  //   title: 'Responsive Design',
+  //   desc: 'Memastikan tampilan website kamu perfect di HP, tablet, maupun desktop. No more broken layouts.',
+  //   tag: 'UI/UX',
+  // },
+  // {
+  //   icon: 'bx bx-trending-up',
+  //   title: 'Digital Marketing',
+  //   desc: 'Bantu bisnis kamu grow secara online — dari konten sosmed, iklan, sampai manajemen toko e-commerce.',
+  //   tag: 'Marketing',
+  // },
 ]
 
 export default function Services() {
